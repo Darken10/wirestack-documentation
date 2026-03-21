@@ -12,13 +12,6 @@ class Toast extends Component
 
     private int $nextId = 0;
 
-    public function getListeners(): array
-    {
-        return [
-            'ds-toast' => 'addToast',
-        ];
-    }
-
     /** @param array<string, mixed> $event */
     public function addToast(array $event): void
     {
