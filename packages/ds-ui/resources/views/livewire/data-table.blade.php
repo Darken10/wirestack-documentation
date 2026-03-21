@@ -16,9 +16,6 @@
                 </div>
             @endif
 
-            @if(isset($filters))
-                <div class="flex items-center gap-2">{{ $filters }}</div>
-            @endif
         </div>
 
         <div class="flex items-center gap-2">
@@ -28,9 +25,6 @@
                 </span>
             @endif
 
-            @if(isset($actions))
-                {{ $actions }}
-            @endif
 
             {{-- Per page --}}
             <select
@@ -82,9 +76,6 @@
                             </div>
                         </th>
                     @endforeach
-                    @if(isset($rowActions))
-                        <th class="px-5 py-3 text-right"></th>
-                    @endif
                 </tr>
             </thead>
             <tbody class="bg-white dark:bg-zinc-900 divide-y divide-zinc-100 dark:divide-zinc-800/60">
@@ -105,18 +96,9 @@
                             @endphp
                             <td class="px-5 py-4 text-zinc-700 dark:text-zinc-300
                                 {{ $align === 'right' ? 'text-right' : ($align === 'center' ? 'text-center' : '') }}">
-                                @if(isset(${'column_'.$key}))
-                                    {{ ${'column_'.$key}($row) }}
-                                @else
-                                    {{ $row[$key] ?? '—' }}
-                                @endif
+                                {{ $row[$key] ?? '—' }}
                             </td>
                         @endforeach
-                        @if(isset($rowActions))
-                            <td class="px-5 py-4 text-right">
-                                {{ $rowActions($row) }}
-                            </td>
-                        @endif
                     </tr>
                 @empty
                     <tr>

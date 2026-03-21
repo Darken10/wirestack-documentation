@@ -9,7 +9,7 @@
 
         {{-- Drawer panel --}}
         <div
-            class="fixed {{ $positionClass() }} z-50 {{ $sizeClass() }} bg-white dark:bg-zinc-900 shadow-2xl flex flex-col
+            class="fixed {{ $this->positionClass() }} z-50 {{ $this->sizeClass() }} bg-white dark:bg-zinc-900 shadow-2xl flex flex-col
                 @if($position === 'right') ds-animate-slide-right @elseif($position === 'left') ds-animate-slide-left @else ds-animate-slide-up @endif"
             role="dialog"
             aria-modal="true"

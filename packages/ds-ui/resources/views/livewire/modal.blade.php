@@ -13,7 +13,7 @@
             role="dialog"
             aria-modal="true"
             x-on:keydown.escape.window="$wire.close()">
-            <div class="w-full {{ $modalSizeClass() }} rounded-2xl bg-white dark:bg-zinc-900 shadow-2xl ds-animate-scale-in overflow-hidden">
+            <div class="w-full {{ $this->modalSizeClass() }} rounded-2xl bg-white dark:bg-zinc-900 shadow-2xl ds-animate-scale-in overflow-hidden">
 
                 {{-- Header --}}
                 @if($title || isset($header))

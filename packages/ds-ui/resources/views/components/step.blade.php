@@ -30,7 +30,7 @@
         @endif
     </div>
 
-    @if(!$loop->last ?? true)
+    @if(!$last)
         <div class="hidden md:flex flex-1 items-center px-4" aria-hidden="true">
             <div class="h-0.5 w-full {{ $isCompleted ? 'bg-blue-600' : 'bg-zinc-200 dark:bg-zinc-700' }}"></div>
         </div>

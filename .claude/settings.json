@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vite:*)",
+      "Bash(npm install:*)",
+      "mcp__laravel-boost__get-absolute-url",
+      "mcp__laravel-boost__last-error",
+      "Bash(php artisan:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/design-system)",
+      "Bash(curl -s http://localhost:8000/design-system)",
+      "Bash(vendor/bin/pint packages/ds-ui/src/Components/Step.php packages/ds-ui/src/DsServiceProvider.php --format agent)"
+    ]
+  }
+}

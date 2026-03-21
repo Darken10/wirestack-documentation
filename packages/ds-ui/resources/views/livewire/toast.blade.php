@@ -1,12 +1,12 @@
 <div
-    class="fixed {{ $positionClass() }} z-50 flex flex-col gap-2.5 w-full max-w-sm pointer-events-none"
+    class="fixed {{ $this->positionClass() }} z-50 flex flex-col gap-2.5 w-full max-w-sm pointer-events-none"
     x-on:ds-toast.window="$wire.addToast($event.detail)">
 
     @foreach($toasts as $toast)
         <div
             wire:key="toast-{{ $toast['id'] }}"
             class="pointer-events-all flex items-start gap-3 p-4 rounded-xl shadow-xl border border-zinc-200 dark:border-zinc-700
-                {{ $typeClasses($toast['type']) }} ds-animate-slide-up"
+                {{ $this->typeClasses($toast['type']) }} ds-animate-slide-up"
             @if($toast['duration'] > 0)
                 x-data="{ show: true }"
                 x-init="setTimeout(() => { show = false; $nextTick(() => $wire.dismiss({{ $toast['id'] }})) }, {{ $toast['duration'] }})"
@@ -18,8 +18,8 @@
             role="alert">
 
             {{-- Icon --}}
-            <div class="shrink-0 mt-0.5 {{ $typeIconClass($toast['type']) }}">
-                <flux:icon.{{ $typeIcon($toast['type']) }} class="h-5 w-5" />
+            <div class="shrink-0 mt-0.5 {{ $this->typeIconClass($toast['type']) }}">
+                <flux:icon.{{ $this->typeIcon($toast['type']) }} class="h-5 w-5" />
             </div>
 
             {{-- Content --}}

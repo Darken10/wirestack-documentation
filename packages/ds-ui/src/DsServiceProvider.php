@@ -128,11 +128,12 @@ class DsServiceProvider extends ServiceProvider
     {
         $prefix = config('ds.prefix', 'ds');
 
-        Livewire::component("{$prefix}::modal", Livewire\Modal::class);
-        Livewire::component("{$prefix}::drawer", Livewire\Drawer::class);
-        Livewire::component("{$prefix}::toast", Livewire\Toast::class);
-        Livewire::component("{$prefix}::data-table", Livewire\DataTable::class);
-        Livewire::component("{$prefix}::command-palette", Livewire\CommandPalette::class);
+        Livewire::addNamespace(
+            $prefix,
+            viewPath: __DIR__.'/../resources/views/livewire',
+            classNamespace: 'Ds\\Ui\\Livewire',
+            classPath: __DIR__.'/Livewire',
+        );
     }
 
     protected function registerDirectives(): void

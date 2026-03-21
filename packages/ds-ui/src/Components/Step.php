@@ -13,6 +13,7 @@ class Step extends Component
         public ?string $description = null,
         public string $status = 'pending',
         public string $icon = '',
+        public bool $last = false,
     ) {}
 
     public function render(): View
