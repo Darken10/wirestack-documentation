@@ -9,8 +9,8 @@ class Code extends Component
 {
     public function __construct(
         public ?string $language = null,
-        public bool    $inline   = false,
-        public bool    $copy     = false,
+        public bool $inline = false,
+        public bool $copy = false,
     ) {}
 
     public function render(): View

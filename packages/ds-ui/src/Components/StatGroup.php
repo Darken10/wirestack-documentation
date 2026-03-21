@@ -8,8 +8,8 @@ use Illuminate\View\View;
 class StatGroup extends Component
 {
     public function __construct(
-        public int    $cols     = 4,
-        public string $variant  = 'bordered',
+        public int $cols = 4,
+        public string $variant = 'bordered',
     ) {}
 
     public function gridClass(): string

@@ -8,19 +8,19 @@ use Illuminate\View\View;
 class Textarea extends Component
 {
     public function __construct(
-        public string  $variant      = 'bordered',
-        public string  $size         = 'md',
-        public ?string $label        = null,
-        public ?string $hint         = null,
-        public ?string $error        = null,
-        public ?string $placeholder  = null,
-        public bool    $autoresize   = false,
-        public int     $rows         = 4,
-        public bool    $disabled     = false,
-        public bool    $readonly     = false,
-        public bool    $required     = false,
-        public ?string $id           = null,
-        public ?string $name         = null,
+        public string $variant = 'bordered',
+        public string $size = 'md',
+        public ?string $label = null,
+        public ?string $hint = null,
+        public ?string $error = null,
+        public ?string $placeholder = null,
+        public bool $autoresize = false,
+        public int $rows = 4,
+        public bool $disabled = false,
+        public bool $readonly = false,
+        public bool $required = false,
+        public ?string $id = null,
+        public ?string $name = null,
     ) {}
 
     public function wrapperClasses(): string
@@ -36,9 +36,9 @@ class Textarea extends Component
     public function textareaClasses(): string
     {
         $size = match ($this->size) {
-            'sm'  => 'text-sm p-2.5',
-            'md'  => 'text-sm p-3',
-            'lg'  => 'text-base p-3.5',
+            'sm' => 'text-sm p-2.5',
+            'md' => 'text-sm p-3',
+            'lg' => 'text-base p-3.5',
             default => 'text-sm p-3',
         };
 

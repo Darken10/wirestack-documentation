@@ -8,9 +8,9 @@ use Illuminate\View\View;
 class Breadcrumb extends Component
 {
     public function __construct(
-        public array  $items     = [],
+        public array $items = [],
         public string $separator = '/',
-        public string $size      = 'sm',
+        public string $size = 'sm',
     ) {}
 
     public function sizeClass(): string

@@ -2,12 +2,14 @@
 
 namespace Ds\Ui\Livewire;
 
+use Illuminate\View\View;
 use Livewire\Component;
 
 class CommandPalette extends Component
 {
-    public bool   $open    = false;
-    public string $query   = '';
+    public bool $open = false;
+
+    public string $query = '';
 
     /** @var array<int, array<string, string>> */
     public array $commands = [];
@@ -15,20 +17,20 @@ class CommandPalette extends Component
     public function getListeners(): array
     {
         return [
-            'ds-command-palette-open'  => 'openPalette',
+            'ds-command-palette-open' => 'openPalette',
             'ds-command-palette-close' => 'closePalette',
         ];
     }
 
     public function openPalette(): void
     {
-        $this->open  = true;
+        $this->open = true;
         $this->query = '';
     }
 
     public function closePalette(): void
     {
-        $this->open  = false;
+        $this->open = false;
         $this->query = '';
     }
 
@@ -59,7 +61,7 @@ class CommandPalette extends Component
         $this->closePalette();
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         return view('ds::livewire.command-palette', [
             'results' => $this->filteredCommands(),

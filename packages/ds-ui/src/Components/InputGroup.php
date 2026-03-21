@@ -10,15 +10,15 @@ class InputGroup extends Component
     public function __construct(
         public ?string $prefix = null,
         public ?string $suffix = null,
-        public string  $size   = 'md',
+        public string $size = 'md',
     ) {}
 
     public function addonClasses(): string
     {
         $size = match ($this->size) {
-            'sm'  => 'px-2.5 py-1.5 text-xs',
-            'md'  => 'px-3 py-2 text-sm',
-            'lg'  => 'px-4 py-2.5 text-base',
+            'sm' => 'px-2.5 py-1.5 text-xs',
+            'md' => 'px-3 py-2 text-sm',
+            'lg' => 'px-4 py-2.5 text-base',
             default => 'px-3 py-2 text-sm',
         };
 

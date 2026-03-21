@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1aef8323f74b4e0d5af2893f280ff53e",
+    "content-hash": "55e4930e3d91def59c04b95b800714a3",
     "packages": [
         {
             "name": "brick/math",
@@ -440,6 +440,41 @@
                 }
             ],
             "time": "2025-10-31T18:51:33+00:00"
+        },
+        {
+            "name": "ds/ui",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./packages/ds-ui",
+                "reference": "1cf66412439da7fa58ceed37c89813cc9036361e"
+            },
+            "require": {
+                "illuminate/support": "^11.0|^12.0",
+                "livewire/livewire": "^4.0",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ds\\Ui\\DsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ds\\Ui\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Complete Design System for Laravel Livewire 4 — fully customizable, modular, and production-ready.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "egulias/email-validator",
@@ -9804,7 +9839,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "ds/ui": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -8,14 +8,14 @@ use Illuminate\View\View;
 class Progress extends Component
 {
     public function __construct(
-        public int    $value    = 0,
-        public int    $max      = 100,
-        public string $color    = 'primary',
-        public string $size     = 'md',
-        public bool   $striped  = false,
-        public bool   $animated = false,
-        public bool   $showValue = false,
-        public ?string $label   = null,
+        public int $value = 0,
+        public int $max = 100,
+        public string $color = 'primary',
+        public string $size = 'md',
+        public bool $striped = false,
+        public bool $animated = false,
+        public bool $showValue = false,
+        public ?string $label = null,
     ) {}
 
     public function percentage(): int
@@ -42,13 +42,13 @@ class Progress extends Component
     public function barColorClass(): string
     {
         return match ($this->color) {
-            'primary'   => 'bg-blue-600',
+            'primary' => 'bg-blue-600',
             'secondary' => 'bg-violet-600',
-            'success'   => 'bg-emerald-600',
-            'warning'   => 'bg-amber-500',
-            'danger'    => 'bg-red-600',
-            'info'      => 'bg-sky-600',
-            default     => 'bg-blue-600',
+            'success' => 'bg-emerald-600',
+            'warning' => 'bg-amber-500',
+            'danger' => 'bg-red-600',
+            'info' => 'bg-sky-600',
+            default => 'bg-blue-600',
         };
     }
 

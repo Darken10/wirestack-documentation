@@ -8,10 +8,10 @@ use Illuminate\View\View;
 class Inline extends Component
 {
     public function __construct(
-        public string $gap     = '3',
-        public string $align   = 'center',
+        public string $gap = '3',
+        public string $align = 'center',
         public string $justify = 'start',
-        public bool   $wrap    = true,
+        public bool $wrap = true,
     ) {}
 
     public function render(): View

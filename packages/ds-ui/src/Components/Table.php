@@ -8,14 +8,14 @@ use Illuminate\View\View;
 class Table extends Component
 {
     public function __construct(
-        public array  $columns   = [],
-        public array  $rows      = [],
-        public bool   $striped   = false,
-        public bool   $hoverable = true,
-        public bool   $bordered  = false,
-        public bool   $compact   = false,
-        public bool   $responsive = true,
-        public ?string $caption  = null,
+        public array $columns = [],
+        public array $rows = [],
+        public bool $striped = false,
+        public bool $hoverable = true,
+        public bool $bordered = false,
+        public bool $compact = false,
+        public bool $responsive = true,
+        public ?string $caption = null,
     ) {}
 
     public function cellPadding(): string

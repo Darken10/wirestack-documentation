@@ -2,6 +2,7 @@
 
 namespace Ds\Ui\Livewire;
 
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Toast extends Component
@@ -22,13 +23,13 @@ class Toast extends Component
     public function addToast(array $event): void
     {
         $duration = $event['duration'] ?? config('ds.toast.duration', 4000);
-        $max      = config('ds.toast.max', 5);
+        $max = config('ds.toast.max', 5);
 
         $toast = [
-            'id'       => ++$this->nextId,
-            'type'     => $event['type'] ?? 'info',
-            'message'  => $event['message'] ?? '',
-            'title'    => $event['title'] ?? null,
+            'id' => ++$this->nextId,
+            'type' => $event['type'] ?? 'info',
+            'message' => $event['message'] ?? '',
+            'title' => $event['title'] ?? null,
             'duration' => $duration,
         ];
 
@@ -50,12 +51,12 @@ class Toast extends Component
     public function positionClass(): string
     {
         return match (config('ds.toast.position', 'bottom-right')) {
-            'top-right'     => 'top-4 right-4',
-            'top-left'      => 'top-4 left-4',
-            'top-center'    => 'top-4 left-1/2 -translate-x-1/2',
-            'bottom-left'   => 'bottom-4 left-4',
+            'top-right' => 'top-4 right-4',
+            'top-left' => 'top-4 left-4',
+            'top-center' => 'top-4 left-1/2 -translate-x-1/2',
+            'bottom-left' => 'bottom-4 left-4',
             'bottom-center' => 'bottom-4 left-1/2 -translate-x-1/2',
-            default         => 'bottom-4 right-4',
+            default => 'bottom-4 right-4',
         };
     }
 
@@ -63,10 +64,10 @@ class Toast extends Component
     {
         return match ($type) {
             'success' => 'border-l-4 border-emerald-500 bg-white dark:bg-zinc-800',
-            'error'   => 'border-l-4 border-red-500 bg-white dark:bg-zinc-800',
+            'error' => 'border-l-4 border-red-500 bg-white dark:bg-zinc-800',
             'warning' => 'border-l-4 border-amber-500 bg-white dark:bg-zinc-800',
-            'info'    => 'border-l-4 border-sky-500 bg-white dark:bg-zinc-800',
-            default   => 'border-l-4 border-zinc-400 bg-white dark:bg-zinc-800',
+            'info' => 'border-l-4 border-sky-500 bg-white dark:bg-zinc-800',
+            default => 'border-l-4 border-zinc-400 bg-white dark:bg-zinc-800',
         };
     }
 
@@ -74,10 +75,10 @@ class Toast extends Component
     {
         return match ($type) {
             'success' => 'text-emerald-500',
-            'error'   => 'text-red-500',
+            'error' => 'text-red-500',
             'warning' => 'text-amber-500',
-            'info'    => 'text-sky-500',
-            default   => 'text-zinc-400',
+            'info' => 'text-sky-500',
+            default => 'text-zinc-400',
         };
     }
 
@@ -85,14 +86,14 @@ class Toast extends Component
     {
         return match ($type) {
             'success' => 'check-circle',
-            'error'   => 'x-circle',
+            'error' => 'x-circle',
             'warning' => 'exclamation-triangle',
-            'info'    => 'information-circle',
-            default   => 'bell',
+            'info' => 'information-circle',
+            default => 'bell',
         };
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         return view('ds::livewire.toast');
     }

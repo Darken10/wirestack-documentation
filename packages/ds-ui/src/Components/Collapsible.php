@@ -9,8 +9,8 @@ class Collapsible extends Component
 {
     public function __construct(
         public ?string $label = null,
-        public bool    $open  = false,
-        public string  $icon  = '',
+        public bool $open = false,
+        public string $icon = '',
     ) {}
 
     public function render(): View

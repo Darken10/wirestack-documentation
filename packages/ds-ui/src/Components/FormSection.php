@@ -8,7 +8,7 @@ use Illuminate\View\View;
 class FormSection extends Component
 {
     public function __construct(
-        public ?string $title       = null,
+        public ?string $title = null,
         public ?string $description = null,
     ) {}
 

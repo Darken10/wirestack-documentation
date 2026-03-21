@@ -8,11 +8,11 @@ use Illuminate\View\View;
 class DropdownItem extends Component
 {
     public function __construct(
-        public string  $href      = '#',
-        public string  $icon      = '',
-        public bool    $danger    = false,
-        public bool    $disabled  = false,
-        public bool    $separator = false,
+        public string $href = '#',
+        public string $icon = '',
+        public bool $danger = false,
+        public bool $disabled = false,
+        public bool $separator = false,
     ) {}
 
     public function itemClasses(): string

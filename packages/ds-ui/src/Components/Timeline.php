@@ -9,7 +9,7 @@ class Timeline extends Component
 {
     public function __construct(
         public string $variant = 'default',
-        public string $color   = 'primary',
+        public string $color = 'primary',
     ) {}
 
     public function render(): View

@@ -8,7 +8,7 @@ use Illuminate\View\View;
 class Stack extends Component
 {
     public function __construct(
-        public string $gap   = '4',
+        public string $gap = '4',
         public string $align = 'stretch',
     ) {}
 
@@ -20,11 +20,11 @@ class Stack extends Component
     public function alignClass(): string
     {
         return match ($this->align) {
-            'start'   => 'items-start',
-            'center'  => 'items-center',
-            'end'     => 'items-end',
+            'start' => 'items-start',
+            'center' => 'items-center',
+            'end' => 'items-end',
             'stretch' => 'items-stretch',
-            default   => 'items-stretch',
+            default => 'items-stretch',
         };
     }
 

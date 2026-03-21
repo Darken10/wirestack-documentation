@@ -8,26 +8,26 @@ use Illuminate\View\View;
 class Pagination extends Component
 {
     public function __construct(
-        public int    $currentPage  = 1,
-        public int    $totalPages   = 1,
-        public int    $perPage      = 15,
-        public int    $total        = 0,
-        public string $variant      = 'default',
-        public bool   $showInfo     = true,
-        public string $size         = 'md',
+        public int $currentPage = 1,
+        public int $totalPages = 1,
+        public int $perPage = 15,
+        public int $total = 0,
+        public string $variant = 'default',
+        public bool $showInfo = true,
+        public string $size = 'md',
     ) {}
 
     /** @return array<int|string> */
     public function pages(): array
     {
-        $range  = [];
-        $delta  = 2;
-        $left   = $this->currentPage - $delta;
-        $right  = $this->currentPage + $delta + 1;
+        $range = [];
+        $delta = 2;
+        $left = $this->currentPage - $delta;
+        $right = $this->currentPage + $delta + 1;
 
-        $pages  = [];
+        $pages = [];
         $result = [];
-        $last   = 0;
+        $last = 0;
 
         for ($i = 1; $i <= $this->totalPages; $i++) {
             if ($i === 1 || $i === $this->totalPages || ($i >= $left && $i < $right)) {
@@ -44,7 +44,7 @@ class Pagination extends Component
                 }
             }
             $result[] = $page;
-            $last      = $page;
+            $last = $page;
         }
 
         return $result;
@@ -53,9 +53,9 @@ class Pagination extends Component
     public function buttonSizeClass(): string
     {
         return match ($this->size) {
-            'sm'  => 'h-7 w-7 text-xs',
-            'md'  => 'h-9 w-9 text-sm',
-            'lg'  => 'h-10 w-10 text-base',
+            'sm' => 'h-7 w-7 text-xs',
+            'md' => 'h-9 w-9 text-sm',
+            'lg' => 'h-10 w-10 text-base',
             default => 'h-9 w-9 text-sm',
         };
     }
