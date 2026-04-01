@@ -33,7 +33,7 @@
 
         @if($loading)
             <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <x-ds::spinner size="sm" color="neutral" />
+                <x-ws::spinner size="sm" color="neutral" />
             </span>
         @elseif($clearable)
             <button type="button"

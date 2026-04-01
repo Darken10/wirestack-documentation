@@ -8,12 +8,12 @@
             <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-800">
                 <span class="text-xs font-medium text-zinc-400 uppercase tracking-wide">{{ $language }}</span>
                 @if($copy)
-                    <x-ds::copy-button :text="trim((string) $slot)" />
+                    <x-ws::copy-button :text="trim((string) $slot)" />
                 @endif
             </div>
         @elseif($copy)
             <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <x-ds::copy-button :text="trim((string) $slot)" />
+                <x-ws::copy-button :text="trim((string) $slot)" />
             </div>
         @endif
         <pre class="p-4 overflow-x-auto text-sm font-mono leading-relaxed text-zinc-200"><code>{{ $slot }}</code></pre>

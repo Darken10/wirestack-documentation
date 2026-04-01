@@ -20,7 +20,7 @@
                         placeholder="Search commands..."
                         class="flex-1 bg-transparent text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none"
                         autofocus />
-                    <x-ds::kbd size="sm">Esc</x-ds::kbd>
+                    <x-ws::kbd size="sm">Esc</x-ws::kbd>
                 </div>
 
                 {{-- Results --}}
@@ -45,11 +45,11 @@
                             </div>
 
                             @if(isset($command['shortcut']))
-                                <x-ds::kbd size="sm">{{ $command['shortcut'] }}</x-ds::kbd>
+                                <x-ws::kbd size="sm">{{ $command['shortcut'] }}</x-ws::kbd>
                             @endif
 
                             @if(isset($command['badge']))
-                                <x-ds::badge size="xs" color="neutral">{{ $command['badge'] }}</x-ds::badge>
+                                <x-ws::badge size="xs" color="neutral">{{ $command['badge'] }}</x-ws::badge>
                             @endif
                         </button>
                     @empty
@@ -62,9 +62,9 @@
 
                 {{-- Footer hint --}}
                 <div class="px-4 py-2.5 border-t border-zinc-100 dark:border-zinc-800 flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-600">
-                    <span class="flex items-center gap-1"><x-ds::kbd size="sm">↵</x-ds::kbd> to select</span>
-                    <span class="flex items-center gap-1"><x-ds::kbd size="sm">↑↓</x-ds::kbd> to navigate</span>
-                    <span class="flex items-center gap-1"><x-ds::kbd size="sm">Esc</x-ds::kbd> to close</span>
+                    <span class="flex items-center gap-1"><x-ws::kbd size="sm">↵</x-ws::kbd> to select</span>
+                    <span class="flex items-center gap-1"><x-ws::kbd size="sm">↑↓</x-ws::kbd> to navigate</span>
+                    <span class="flex items-center gap-1"><x-ws::kbd size="sm">Esc</x-ws::kbd> to close</span>
                 </div>
             </div>
         </div>

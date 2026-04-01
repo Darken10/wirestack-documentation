@@ -14,7 +14,7 @@
     ]) }}
 >
     @if($loading)
-        <x-ds::spinner size="sm" color="current" />
+        <x-ws::spinner size="sm" color="current" />
     @elseif($icon)
         <x-dynamic-component :component="'heroicon-o-'.$icon" class="{{ $square ? 'h-5 w-5' : 'h-4 w-4' }}" />
     @endif

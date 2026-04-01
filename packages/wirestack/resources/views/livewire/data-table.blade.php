@@ -117,7 +117,7 @@
 
     {{-- Pagination --}}
     @if($totalPages > 1)
-        <x-ds::pagination
+        <x-ws::pagination
             :current-page="$currentPage"
             :total-pages="$totalPages"
             :per-page="$perPage"
