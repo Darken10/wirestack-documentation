@@ -79,13 +79,13 @@
         </p>
         <div class="flex items-center justify-center gap-3 flex-wrap">
             <x-ds::button variant="solid" color="neutral"
-                class="bg-white text-zinc-900 hover:bg-zinc-100 border-0">
+                class="bg-white text-zinc-100 hover:bg-zinc-100 border-0 ">
                 <flux:icon.code-bracket class="h-4 w-4" />
                 View on GitHub
             </x-ds::button>
             <x-ds::button variant="outline" color="neutral"
                 class="border-white/40 text-white hover:bg-white/10">
-                <flux:icon.book-open class="h-4 w-4" />
+                <flux:icon.book-open class="h-4 w-4 " />
                 Documentation
             </x-ds::button>
         </div>

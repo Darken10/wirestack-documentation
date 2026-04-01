@@ -1,6 +1,6 @@
 <?php
 
-namespace Ds\Ui;
+namespace Wirestack\Ui;
 
 class DsScriptRenderer
 {
