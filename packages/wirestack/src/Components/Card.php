@@ -17,7 +17,7 @@ class Card extends Component
         public bool $shadow = false,
         public string $color = 'white',
     ) {
-        $defaults = config('ds.defaults.card', []);
+        $defaults = config('ws.defaults.card', []);
         $this->variant = $variant ?: ($defaults['variant'] ?? 'bordered');
         $this->padding = $padding ?: ($defaults['padding'] ?? 'md');
         $this->cardClasses = $this->resolveClasses();

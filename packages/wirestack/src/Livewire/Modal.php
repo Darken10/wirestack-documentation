@@ -18,7 +18,7 @@ class Modal extends Component
         public ?string $title = null,
         public ?string $description = null,
     ) {
-        $defaults = config('ds.defaults.modal', []);
+        $defaults = config('ws.defaults.modal', []);
         $this->size = $size ?: ($defaults['size'] ?? 'md');
     }
 

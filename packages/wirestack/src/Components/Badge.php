@@ -18,7 +18,7 @@ class Badge extends Component
         public bool $dot = false,
         public bool $dismiss = false,
     ) {
-        $defaults = config('ds.defaults.badge', []);
+        $defaults = config('ws.defaults.badge', []);
         $this->variant = $variant ?: ($defaults['variant'] ?? 'soft');
         $this->color = $color ?: ($defaults['color'] ?? 'primary');
         $this->size = $size ?: ($defaults['size'] ?? 'sm');

@@ -34,7 +34,7 @@ class Input extends Component
         public bool $readonly = false,
         public ?string $autocomplete = null,
     ) {
-        $defaults = config('ds.defaults.input', []);
+        $defaults = config('ws.defaults.input', []);
         $this->variant = $variant ?: ($defaults['variant'] ?? 'bordered');
         $this->size = $size ?: ($defaults['size'] ?? 'md');
         $this->hasAddon = (bool) ($this->prefix || $this->suffix);

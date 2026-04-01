@@ -30,14 +30,16 @@ Dans `resources/css/app.css`, importez la feuille de styles du package pour que 
 /* resources/css/app.css */
 @import "tailwindcss";
 
-/* Scanner les vues du package pour les classes Tailwind */
-@source "../../vendor/wirestack/ui/resources/views/**/*.blade.php";
+/* Scanner les vues et classes PHP du package pour Tailwind */
+@source "../../vendor/darken10/wirestack/resources/views/**/*.blade.php";
+@source "../../vendor/darken10/wirestack/src/**/*.php";
 ```
 
-> Si vous utilisez Wirestack en **développement local** (chemin `packages/`), remplacez le source path par :
+> Si vous utilisez Wirestack en **développement local** (chemin `packages/`), remplacez les source paths par :
 >
 > ```css
 > @source "../../packages/wirestack/resources/views/**/*.blade.php";
+> @source "../../packages/wirestack/src/**/*.php";
 > ```
 
 ---
@@ -144,6 +146,7 @@ composer install
 
 ```css
 @source "../../packages/wirestack/resources/views/**/*.blade.php";
+@source "../../packages/wirestack/src/**/*.php";
 ```
 
 ---

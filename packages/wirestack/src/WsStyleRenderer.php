@@ -6,12 +6,17 @@ class WsStyleRenderer
 {
     public function render(): string
     {
+        $cssPath = __DIR__ . '/../resources/css/ds.css';
+        $baseCss = file_exists($cssPath) ? file_get_contents($cssPath) : '';
+
         $tokens = config('ws.tokens', []);
 
-        $vars = collect($tokens)
-            ->map(fn($value, $key) => "    --ws-{$key}: {$value};")
+        $overrides = collect($tokens)
+            ->map(fn($value, $key) => "    --ds-{$key}: {$value};")
             ->implode("\n");
 
-        return "<style>:root {\n{$vars}\n}</style>\n";
+        $overrideBlock = $overrides ? ":root {\n{$overrides}\n}" : '';
+
+        return "<style>\n{$baseCss}\n{$overrideBlock}\n</style>\n";
     }
 }

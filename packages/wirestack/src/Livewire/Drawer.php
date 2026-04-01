@@ -17,7 +17,7 @@ class Drawer extends Component
         public bool $backdrop = true,
         public ?string $title = null,
     ) {
-        $defaults = config('ds.defaults.drawer', []);
+        $defaults = config('ws.defaults.drawer', []);
         $this->position = $position ?: ($defaults['position'] ?? 'right');
         $this->size = $size ?: ($defaults['size'] ?? 'md');
     }

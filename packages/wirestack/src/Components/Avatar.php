@@ -26,7 +26,7 @@ class Avatar extends Component
         public string $status = '',
         public string $color = 'neutral',
     ) {
-        $defaults = config('ds.defaults.avatar', []);
+        $defaults = config('ws.defaults.avatar', []);
         $this->size = $size ?: ($defaults['size'] ?? 'md');
         $this->shape = $shape ?: ($defaults['shape'] ?? 'circle');
 

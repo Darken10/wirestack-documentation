@@ -1,2 +1,2 @@
-{{-- Renders a Heroicon via Flux's icon system --}}
-<x-dynamic-component :component="'heroicon-o-'.$name" {{ $attributes->class([$sizeClass]) }} />
+{{-- Renders a Heroicon (outline or solid) --}}
+<x-dynamic-component :component="'heroicon-'.($variant === 'solid' ? 's' : 'o').'-'.$name" {{ $attributes->class([$sizeClass]) }} />

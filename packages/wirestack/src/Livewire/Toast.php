@@ -15,8 +15,8 @@ class Toast extends Component
     /** @param array<string, mixed> $event */
     public function addToast(array $event): void
     {
-        $duration = $event['duration'] ?? config('ds.toast.duration', 4000);
-        $max = config('ds.toast.max', 5);
+        $duration = $event['duration'] ?? config('ws.toast.duration', 4000);
+        $max = config('ws.toast.max', 5);
 
         $toast = [
             'id' => ++$this->nextId,
@@ -43,7 +43,7 @@ class Toast extends Component
 
     public function positionClass(): string
     {
-        return match (config('ds.toast.position', 'bottom-right')) {
+        return match (config('ws.toast.position', 'bottom-right')) {
             'top-right' => 'top-4 right-4',
             'top-left' => 'top-4 left-4',
             'top-center' => 'top-4 left-1/2 -translate-x-1/2',

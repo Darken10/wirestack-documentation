@@ -18,7 +18,7 @@ class Alert extends Component
         public string $icon = '',
         public bool $dismissible = false,
     ) {
-        $defaults = config('ds.defaults.alert', []);
+        $defaults = config('ws.defaults.alert', []);
         $this->variant = $variant ?: ($defaults['variant'] ?? 'soft');
         $this->color = $color ?: ($defaults['color'] ?? 'info');
 

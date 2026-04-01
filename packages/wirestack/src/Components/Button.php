@@ -28,7 +28,7 @@ class Button extends Component
         public string $buttonType = 'button',
         public ?string $confirm = null,
     ) {
-        $defaults = config('ds.defaults.button', []);
+        $defaults = config('ws.defaults.button', []);
         $this->variant = $variant ?: ($defaults['variant'] ?? 'solid');
         $this->color = $color ?: ($defaults['color'] ?? 'primary');
         $this->size = $size ?: ($defaults['size'] ?? 'md');
