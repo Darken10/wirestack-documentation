@@ -30,6 +30,6 @@ class Table extends Component
 
     public function render(): View
     {
-        return view('ds::components.table');
+        return view('ws::components.table');
     }
 }

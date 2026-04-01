@@ -55,6 +55,6 @@ class Modal extends Component
 
     public function render(): View
     {
-        return view('ds::livewire.modal');
+        return view('ws::livewire.modal');
     }
 }

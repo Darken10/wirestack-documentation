@@ -31,6 +31,6 @@ class TimelineItem extends Component
 
     public function render(): View
     {
-        return view('ds::components.timeline-item');
+        return view('ws::components.timeline-item');
     }
 }

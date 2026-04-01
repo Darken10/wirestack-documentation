@@ -17,6 +17,6 @@ class NavItem extends Component
 
     public function render(): View
     {
-        return view('ds::components.nav-item');
+        return view('ws::components.nav-item');
     }
 }

@@ -16,6 +16,6 @@ class Inline extends Component
 
     public function render(): View
     {
-        return view('ds::components.inline');
+        return view('ws::components.inline');
     }
 }

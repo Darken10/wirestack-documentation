@@ -34,6 +34,6 @@ class Range extends Component
 
     public function render(): View
     {
-        return view('ds::components.range');
+        return view('ws::components.range');
     }
 }

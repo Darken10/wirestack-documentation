@@ -27,6 +27,6 @@ class InputGroup extends Component
 
     public function render(): View
     {
-        return view('ds::components.input-group');
+        return view('ws::components.input-group');
     }
 }

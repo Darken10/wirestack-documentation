@@ -36,6 +36,6 @@ class CardFooter extends Component
 
     public function render(): View
     {
-        return view('ds::components.card-footer');
+        return view('ws::components.card-footer');
     }
 }

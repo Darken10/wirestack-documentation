@@ -123,7 +123,7 @@ class DataTable extends Component
 
     public function render(): View
     {
-        return view('ds::livewire.data-table', [
+        return view('ws::livewire.data-table', [
             'displayRows' => $this->paginatedRows(),
             'totalRows' => $this->totalFiltered(),
             'currentPage' => $this->getPage(),

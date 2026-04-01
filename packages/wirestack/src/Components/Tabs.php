@@ -72,6 +72,6 @@ class Tabs extends Component
 
     public function render(): View
     {
-        return view('ds::components.tabs');
+        return view('ws::components.tabs');
     }
 }

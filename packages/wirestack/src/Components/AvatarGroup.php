@@ -25,6 +25,6 @@ class AvatarGroup extends Component
 
     public function render(): View
     {
-        return view('ds::components.avatar-group');
+        return view('ws::components.avatar-group');
     }
 }

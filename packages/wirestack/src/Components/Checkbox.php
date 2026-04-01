@@ -43,6 +43,6 @@ class Checkbox extends Component
 
     public function render(): View
     {
-        return view('ds::components.checkbox');
+        return view('ws::components.checkbox');
     }
 }

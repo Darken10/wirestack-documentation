@@ -30,6 +30,6 @@ class Stack extends Component
 
     public function render(): View
     {
-        return view('ds::components.stack');
+        return view('ws::components.stack');
     }
 }

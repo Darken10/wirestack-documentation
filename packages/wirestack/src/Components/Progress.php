@@ -54,6 +54,6 @@ class Progress extends Component
 
     public function render(): View
     {
-        return view('ds::components.progress');
+        return view('ws::components.progress');
     }
 }

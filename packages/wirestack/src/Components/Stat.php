@@ -51,6 +51,6 @@ class Stat extends Component
 
     public function render(): View
     {
-        return view('ds::components.stat');
+        return view('ws::components.stat');
     }
 }

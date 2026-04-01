@@ -63,7 +63,7 @@ class CommandPalette extends Component
 
     public function render(): View
     {
-        return view('ds::livewire.command-palette', [
+        return view('ws::livewire.command-palette', [
             'results' => $this->filteredCommands(),
         ]);
     }

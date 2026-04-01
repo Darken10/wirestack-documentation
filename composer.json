@@ -10,11 +10,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "ds/ui": "@dev",
+        "blade-ui-kit/blade-heroicons": "^2.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/flux": "^2.0",
-        "livewire/volt": "^1.6.7"
+        "livewire/volt": "^1.6.7",
+        "wirestack/ui": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -78,7 +78,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./packages/ds-ui",
+            "url": "./packages/wirestack",
             "options": {
                 "symlink": true
             }

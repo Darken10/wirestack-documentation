@@ -14,6 +14,6 @@ class CopyButton extends Component
 
     public function render(): View
     {
-        return view('ds::components.copy-button');
+        return view('ws::components.copy-button');
     }
 }

@@ -50,6 +50,6 @@ class Panel extends Component
 
     public function render(): View
     {
-        return view('ds::components.panel');
+        return view('ws::components.panel');
     }
 }

@@ -69,6 +69,6 @@ class Toggle extends Component
 
     public function render(): View
     {
-        return view('ds::components.toggle');
+        return view('ws::components.toggle');
     }
 }

@@ -62,6 +62,6 @@ class Pagination extends Component
 
     public function render(): View
     {
-        return view('ds::components.pagination');
+        return view('ws::components.pagination');
     }
 }

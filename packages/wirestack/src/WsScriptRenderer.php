@@ -2,7 +2,7 @@
 
 namespace Wirestack\Ui;
 
-class DsScriptRenderer
+class WsScriptRenderer
 {
     public function render(): string
     {

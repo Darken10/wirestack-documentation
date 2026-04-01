@@ -16,6 +16,6 @@ class RadioGroup extends Component
 
     public function render(): View
     {
-        return view('ds::components.radio-group');
+        return view('ws::components.radio-group');
     }
 }

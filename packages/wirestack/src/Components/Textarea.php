@@ -47,6 +47,6 @@ class Textarea extends Component
 
     public function render(): View
     {
-        return view('ds::components.textarea');
+        return view('ws::components.textarea');
     }
 }

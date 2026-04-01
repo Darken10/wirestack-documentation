@@ -14,6 +14,6 @@ class Timeline extends Component
 
     public function render(): View
     {
-        return view('ds::components.timeline');
+        return view('ws::components.timeline');
     }
 }

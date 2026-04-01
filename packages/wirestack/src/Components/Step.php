@@ -18,6 +18,6 @@ class Step extends Component
 
     public function render(): View
     {
-        return view('ds::components.step');
+        return view('ws::components.step');
     }
 }

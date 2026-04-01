@@ -15,6 +15,6 @@ class Collapsible extends Component
 
     public function render(): View
     {
-        return view('ds::components.collapsible');
+        return view('ws::components.collapsible');
     }
 }

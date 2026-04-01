@@ -36,6 +36,6 @@ class Popover extends Component
 
     public function render(): View
     {
-        return view('ds::components.popover');
+        return view('ws::components.popover');
     }
 }

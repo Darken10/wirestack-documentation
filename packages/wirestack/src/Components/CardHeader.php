@@ -26,6 +26,6 @@ class CardHeader extends Component
 
     public function render(): View
     {
-        return view('ds::components.card-header');
+        return view('ws::components.card-header');
     }
 }

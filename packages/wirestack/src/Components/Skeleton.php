@@ -38,6 +38,6 @@ class Skeleton extends Component
 
     public function render(): View
     {
-        return view('ds::components.skeleton');
+        return view('ws::components.skeleton');
     }
 }

@@ -88,6 +88,6 @@ class Toast extends Component
 
     public function render(): View
     {
-        return view('ds::livewire.toast');
+        return view('ws::livewire.toast');
     }
 }

@@ -104,6 +104,6 @@ class Avatar extends Component
 
     public function render(): View
     {
-        return view('ds::components.avatar');
+        return view('ws::components.avatar');
     }
 }

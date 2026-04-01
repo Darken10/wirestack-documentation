@@ -72,6 +72,6 @@ class Card extends Component
 
     public function render(): View
     {
-        return view('ds::components.card');
+        return view('ws::components.card');
     }
 }

@@ -15,6 +15,6 @@ class Nav extends Component
 
     public function render(): View
     {
-        return view('ds::components.nav');
+        return view('ws::components.nav');
     }
 }

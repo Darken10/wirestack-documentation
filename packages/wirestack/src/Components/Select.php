@@ -44,6 +44,6 @@ class Select extends Component
 
     public function render(): View
     {
-        return view('ds::components.select');
+        return view('ws::components.select');
     }
 }

@@ -89,6 +89,6 @@ class Drawer extends Component
 
     public function render(): View
     {
-        return view('ds::livewire.drawer');
+        return view('ws::livewire.drawer');
     }
 }

@@ -26,6 +26,6 @@ class EmptyState extends Component
 
     public function render(): View
     {
-        return view('ds::components.empty-state');
+        return view('ws::components.empty-state');
     }
 }

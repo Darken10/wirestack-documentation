@@ -65,6 +65,6 @@ class Badge extends Component
 
     public function render(): View
     {
-        return view('ds::components.badge');
+        return view('ws::components.badge');
     }
 }

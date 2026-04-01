@@ -39,6 +39,6 @@ class Container extends Component
 
     public function render(): View
     {
-        return view('ds::components.container');
+        return view('ws::components.container');
     }
 }

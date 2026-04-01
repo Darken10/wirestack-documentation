@@ -36,6 +36,6 @@ class DropdownItem extends Component
 
     public function render(): View
     {
-        return view('ds::components.dropdown-item');
+        return view('ws::components.dropdown-item');
     }
 }

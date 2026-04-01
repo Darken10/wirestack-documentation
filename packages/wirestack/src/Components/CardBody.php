@@ -24,6 +24,6 @@ class CardBody extends Component
 
     public function render(): View
     {
-        return view('ds::components.card-body');
+        return view('ws::components.card-body');
     }
 }

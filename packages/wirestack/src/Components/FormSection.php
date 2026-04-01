@@ -14,6 +14,6 @@ class FormSection extends Component
 
     public function render(): View
     {
-        return view('ds::components.form-section');
+        return view('ws::components.form-section');
     }
 }

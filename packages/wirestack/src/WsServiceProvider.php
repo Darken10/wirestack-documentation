@@ -11,17 +11,17 @@ class WsServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/ws.php',
+            __DIR__ . '/../config/ws.php',
             'ws'
         );
     }
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'ws');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'ws');
 
-        $this->app->singleton('Wirestack\Ui\WsStyleRenderer', fn () => new WsStyleRenderer);
-        $this->app->singleton('Wirestack\Ui\WsScriptRenderer', fn () => new WsScriptRenderer);
+        $this->app->singleton('Wirestack\Ui\WsStyleRenderer', fn() => new WsStyleRenderer);
+        $this->app->singleton('Wirestack\Ui\WsScriptRenderer', fn() => new WsScriptRenderer);
 
         $this->registerBladeComponents();
         $this->registerLivewireComponents();
@@ -29,16 +29,16 @@ class WsServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/ws.php' => config_path('ws.php'),
+                __DIR__ . '/../config/ws.php' => config_path('ws.php'),
             ], 'ws-config');
 
             $this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/ws'),
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/ws'),
             ], 'ws-views');
 
             $this->publishes([
-                __DIR__.'/../resources/css' => public_path('vendor/ws/css'),
-                __DIR__.'/../resources/js' => public_path('vendor/ws/js'),
+                __DIR__ . '/../resources/css' => public_path('vendor/ws/css'),
+                __DIR__ . '/../resources/js' => public_path('vendor/ws/js'),
             ], 'ws-assets');
         }
     }
@@ -130,9 +130,9 @@ class WsServiceProvider extends ServiceProvider
 
         Livewire::addNamespace(
             $prefix,
-            viewPath: __DIR__.'/../resources/views/livewire',
+            viewPath: __DIR__ . '/../resources/views/livewire',
             classNamespace: 'Wirestack\\Ui\\Livewire',
-            classPath: __DIR__.'/Livewire',
+            classPath: __DIR__ . '/Livewire',
         );
     }
 

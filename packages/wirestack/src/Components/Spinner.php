@@ -51,6 +51,6 @@ class Spinner extends Component
 
     public function render(): View
     {
-        return view('ds::components.spinner');
+        return view('ws::components.spinner');
     }
 }

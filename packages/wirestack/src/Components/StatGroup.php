@@ -26,6 +26,6 @@ class StatGroup extends Component
 
     public function render(): View
     {
-        return view('ds::components.stat-group');
+        return view('ws::components.stat-group');
     }
 }

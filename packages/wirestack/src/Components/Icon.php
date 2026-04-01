@@ -31,6 +31,6 @@ class Icon extends Component
 
     public function render(): View
     {
-        return view('ds::components.icon');
+        return view('ws::components.icon');
     }
 }

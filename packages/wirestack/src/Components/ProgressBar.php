@@ -24,6 +24,6 @@ class ProgressBar extends Component
 
     public function render(): View
     {
-        return view('ds::components.progress-bar');
+        return view('ws::components.progress-bar');
     }
 }

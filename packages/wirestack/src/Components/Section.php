@@ -27,6 +27,6 @@ class Section extends Component
 
     public function render(): View
     {
-        return view('ds::components.section');
+        return view('ws::components.section');
     }
 }

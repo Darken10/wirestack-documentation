@@ -18,6 +18,6 @@ class FormGroup extends Component
 
     public function render(): View
     {
-        return view('ds::components.form-group');
+        return view('ws::components.form-group');
     }
 }

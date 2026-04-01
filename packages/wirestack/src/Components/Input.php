@@ -101,6 +101,6 @@ class Input extends Component
 
     public function render(): View
     {
-        return view('ds::components.input');
+        return view('ws::components.input');
     }
 }

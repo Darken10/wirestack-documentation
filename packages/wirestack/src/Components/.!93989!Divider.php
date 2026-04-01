@@ -33,6 +33,6 @@ class Divider extends Component
 
     public function render(): View
     {
-        return view('ds::components.divider');
+        return view('ws::components.divider');
     }
 }

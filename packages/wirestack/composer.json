@@ -1,5 +1,5 @@
 {
-    "name": "ds/ui",
+    "name": "wirestack/ui",
     "description": "Complete Design System for Laravel Livewire 4 — fully customizable, modular, and production-ready.",
     "type": "library",
     "license": "MIT",
@@ -10,13 +10,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Ds\\Ui\\": "src/"
+            "Wirestack\\Ui\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Ds\\Ui\\DsServiceProvider"
+                "Wirestack\\Ui\\WsServiceProvider"
             ]
         }
     },

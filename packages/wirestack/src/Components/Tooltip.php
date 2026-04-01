@@ -37,6 +37,6 @@ class Tooltip extends Component
 
     public function render(): View
     {
-        return view('ds::components.tooltip');
+        return view('ws::components.tooltip');
     }
 }

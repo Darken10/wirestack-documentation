@@ -41,6 +41,6 @@ class Radio extends Component
 
     public function render(): View
     {
-        return view('ds::components.radio');
+        return view('ws::components.radio');
     }
 }

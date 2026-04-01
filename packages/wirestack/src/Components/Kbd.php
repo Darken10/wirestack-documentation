@@ -23,6 +23,6 @@ class Kbd extends Component
 
     public function render(): View
     {
-        return view('ds::components.kbd');
+        return view('ws::components.kbd');
     }
 }

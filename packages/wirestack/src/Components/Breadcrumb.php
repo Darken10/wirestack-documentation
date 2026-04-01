@@ -25,6 +25,6 @@ class Breadcrumb extends Component
 
     public function render(): View
     {
-        return view('ds::components.breadcrumb');
+        return view('ws::components.breadcrumb');
     }
 }

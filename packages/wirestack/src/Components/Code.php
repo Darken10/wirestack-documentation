@@ -15,6 +15,6 @@ class Code extends Component
 
     public function render(): View
     {
-        return view('ds::components.code');
+        return view('ws::components.code');
     }
 }

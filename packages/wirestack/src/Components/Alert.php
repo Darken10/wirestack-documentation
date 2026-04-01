@@ -52,6 +52,6 @@ class Alert extends Component
 
     public function render(): View
     {
-        return view('ds::components.alert');
+        return view('ws::components.alert');
     }
 }

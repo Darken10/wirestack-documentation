@@ -14,6 +14,6 @@ class Accordion extends Component
 
     public function render(): View
     {
-        return view('ds::components.accordion');
+        return view('ws::components.accordion');
     }
 }

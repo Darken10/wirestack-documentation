@@ -46,6 +46,6 @@ class Chip extends Component
 
     public function render(): View
     {
-        return view('ds::components.chip');
+        return view('ws::components.chip');
     }
 }

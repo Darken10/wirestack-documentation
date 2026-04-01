@@ -96,6 +96,6 @@ class Button extends Component
 
     public function render(): View
     {
-        return view('ds::components.button');
+        return view('ws::components.button');
     }
 }

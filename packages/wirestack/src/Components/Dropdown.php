@@ -30,6 +30,6 @@ class Dropdown extends Component
 
     public function render(): View
     {
-        return view('ds::components.dropdown');
+        return view('ws::components.dropdown');
     }
 }

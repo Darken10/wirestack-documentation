@@ -9,7 +9,7 @@ class WsStyleRenderer
         $tokens = config('ws.tokens', []);
 
         $vars = collect($tokens)
-            ->map(fn ($value, $key) => "    --ws-{$key}: {$value};")
+            ->map(fn($value, $key) => "    --ws-{$key}: {$value};")
             ->implode("\n");
 
         return "<style>:root {\n{$vars}\n}</style>\n";
