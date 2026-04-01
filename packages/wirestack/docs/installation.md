@@ -15,7 +15,7 @@
 ## 1. Installer via Composer
 
 ```bash
-composer require wirestack/ui
+composer require darken10/wirestack
 ```
 
 Le service provider est auto-découvert par Laravel. Aucune déclaration manuelle n'est nécessaire.
@@ -123,16 +123,16 @@ Si vous développez le package dans le même dépôt que votre application :
 
 ```json
 {
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./packages/wirestack",
-            "options": { "symlink": true }
-        }
-    ],
-    "require": {
-        "wirestack/ui": "@dev"
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./packages/wirestack",
+      "options": { "symlink": true }
     }
+  ],
+  "require": {
+    "darken10/wirestack": "0.0.1-dev"
+  }
 }
 ```
 

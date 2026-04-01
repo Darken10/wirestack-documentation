@@ -1,5 +1,6 @@
 {
     "name": "wirestack/ui",
+    "version": "0.0.1-dev",
     "description": "Complete Design System for Laravel & Livewire 4 — 70+ Blade components, 5 Livewire components, Tailwind CSS v4, Alpine.js, dark mode, and fully customizable design tokens.",
     "type": "library",
     "license": "MIT",

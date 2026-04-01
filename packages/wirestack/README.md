@@ -81,16 +81,16 @@
 
 ```json
 {
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./packages/ds-ui",
-            "options": { "symlink": true }
-        }
-    ],
-    "require": {
-        "ds/ui": "@dev"
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./packages/ds-ui",
+      "options": { "symlink": true }
     }
+  ],
+  "require": {
+    "darken10/wirestack": "0.0.1-dev"
+  }
 }
 ```
 
@@ -103,7 +103,7 @@ composer install
 ### 2. Intégrer les assets dans `resources/css/app.css`
 
 ```css
-@import '../../packages/ds-ui/resources/css/ds.css';
+@import "../../packages/ds-ui/resources/css/ds.css";
 @source '../../packages/ds-ui/resources/views/**/*.blade.php';
 ```
 
@@ -196,25 +196,25 @@ return [
 
 Les tokens sont des variables CSS injectées dans `<head>` via `@dsStyles`. Ils permettent de changer l'apparence globale du système sans modifier les composants.
 
-| Token | Défaut | Description |
-|---|---|---|
-| `--ds-primary-h` | `221` | Teinte H de la couleur primaire (HSL) |
-| `--ds-primary-s` | `83%` | Saturation S de la couleur primaire |
-| `--ds-primary-l` | `53%` | Luminosité L de la couleur primaire |
-| `--ds-radius-sm` | `0.25rem` | Arrondi petit |
-| `--ds-radius-md` | `0.375rem` | Arrondi moyen |
-| `--ds-radius-lg` | `0.5rem` | Arrondi grand |
-| `--ds-radius-xl` | `0.75rem` | Arrondi très grand |
-| `--ds-radius-2xl` | `1rem` | Arrondi extra |
-| `--ds-radius-full` | `9999px` | Arrondi complet (pilule) |
-| `--ds-font-sans` | `'Instrument Sans', ...` | Police principale |
-| `--ds-transition-fast` | `100ms ease` | Transition rapide |
-| `--ds-transition-normal` | `180ms ease` | Transition normale |
-| `--ds-transition-slow` | `300ms ease` | Transition lente |
-| `--ds-shadow-sm` | `0 1px 2px ...` | Ombre légère |
-| `--ds-shadow-md` | `0 4px 6px ...` | Ombre moyenne |
-| `--ds-shadow-lg` | `0 10px 15px ...` | Ombre forte |
-| `--ds-shadow-xl` | `0 20px 25px ...` | Ombre très forte |
+| Token                    | Défaut                   | Description                           |
+| ------------------------ | ------------------------ | ------------------------------------- |
+| `--ds-primary-h`         | `221`                    | Teinte H de la couleur primaire (HSL) |
+| `--ds-primary-s`         | `83%`                    | Saturation S de la couleur primaire   |
+| `--ds-primary-l`         | `53%`                    | Luminosité L de la couleur primaire   |
+| `--ds-radius-sm`         | `0.25rem`                | Arrondi petit                         |
+| `--ds-radius-md`         | `0.375rem`               | Arrondi moyen                         |
+| `--ds-radius-lg`         | `0.5rem`                 | Arrondi grand                         |
+| `--ds-radius-xl`         | `0.75rem`                | Arrondi très grand                    |
+| `--ds-radius-2xl`        | `1rem`                   | Arrondi extra                         |
+| `--ds-radius-full`       | `9999px`                 | Arrondi complet (pilule)              |
+| `--ds-font-sans`         | `'Instrument Sans', ...` | Police principale                     |
+| `--ds-transition-fast`   | `100ms ease`             | Transition rapide                     |
+| `--ds-transition-normal` | `180ms ease`             | Transition normale                    |
+| `--ds-transition-slow`   | `300ms ease`             | Transition lente                      |
+| `--ds-shadow-sm`         | `0 1px 2px ...`          | Ombre légère                          |
+| `--ds-shadow-md`         | `0 4px 6px ...`          | Ombre moyenne                         |
+| `--ds-shadow-lg`         | `0 10px 15px ...`        | Ombre forte                           |
+| `--ds-shadow-xl`         | `0 20px 25px ...`        | Ombre très forte                      |
 
 **Changer la couleur primaire** (ex. vert émeraude) :
 
@@ -231,9 +231,9 @@ Les tokens sont des variables CSS injectées dans `<head>` via `@dsStyles`. Ils 
 
 ## Directives Blade
 
-| Directive | Description |
-|---|---|
-| `@dsStyles` | Injecte `<style>:root { --ds-* ... }</style>` dans le `<head>` |
+| Directive    | Description                                                                             |
+| ------------ | --------------------------------------------------------------------------------------- |
+| `@dsStyles`  | Injecte `<style>:root { --ds-* ... }</style>` dans le `<head>`                          |
 | `@dsScripts` | Injecte les helpers JS (`DsToast`, `DsModal`, `DsDrawer`, `DsCommandPalette`, `DsCopy`) |
 
 ---
@@ -246,43 +246,43 @@ Les helpers sont disponibles globalement après `@dsScripts`.
 
 ```js
 // Afficher une notification
-DsToast.success('Enregistré avec succès')
-DsToast.error('Une erreur est survenue')
-DsToast.warning('Attention, vérifiez les données')
-DsToast.info('Mise à jour disponible')
+DsToast.success("Enregistré avec succès");
+DsToast.error("Une erreur est survenue");
+DsToast.warning("Attention, vérifiez les données");
+DsToast.info("Mise à jour disponible");
 
 // Avec options
-DsToast.success('Profil mis à jour', {
-    title: 'Succès',       // Titre optionnel
-    duration: 6000,        // Durée en ms (0 = pas d'auto-dismiss)
-})
+DsToast.success("Profil mis à jour", {
+  title: "Succès", // Titre optionnel
+  duration: 6000, // Durée en ms (0 = pas d'auto-dismiss)
+});
 ```
 
 ### DsModal — Modales
 
 ```js
-DsModal.open('my-modal')    // Ouvrir la modale avec modalId="my-modal"
-DsModal.close('my-modal')   // Fermer
+DsModal.open("my-modal"); // Ouvrir la modale avec modalId="my-modal"
+DsModal.close("my-modal"); // Fermer
 ```
 
 ### DsDrawer — Tiroirs
 
 ```js
-DsDrawer.open('my-drawer')  // Ouvrir le tiroir avec drawerId="my-drawer"
-DsDrawer.close('my-drawer') // Fermer
+DsDrawer.open("my-drawer"); // Ouvrir le tiroir avec drawerId="my-drawer"
+DsDrawer.close("my-drawer"); // Fermer
 ```
 
 ### DsCommandPalette — Palette de commandes
 
 ```js
-DsCommandPalette.open()    // Ouvrir (aussi déclenché par Cmd/Ctrl+K)
-DsCommandPalette.close()   // Fermer
+DsCommandPalette.open(); // Ouvrir (aussi déclenché par Cmd/Ctrl+K)
+DsCommandPalette.close(); // Fermer
 ```
 
 ### DsCopy — Presse-papiers
 
 ```js
-await DsCopy.copy('Texte à copier', buttonElement)
+await DsCopy.copy("Texte à copier", buttonElement);
 // Retourne true si succès, false si échec
 ```
 
@@ -312,21 +312,21 @@ Bouton polyvalent. Peut être rendu comme `<button>` ou `<a>` selon la présence
 </x-ds::button>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `variant` | string | `solid` | `solid` `outline` `ghost` `soft` `link` |
-| `color` | string | `primary` | `primary` `secondary` `neutral` `success` `warning` `danger` `info` |
-| `size` | string | `md` | `xs` `sm` `md` `lg` `xl` |
-| `rounded` | string | `md` | `none` `sm` `md` `lg` `full` |
-| `icon` | string | — | Nom d'icône Heroicons (ex. `plus`, `trash`) |
-| `icon-trailing` | string | — | Icône positionnée après le texte |
-| `href` | string | — | Rend le bouton comme `<a href="...">` |
-| `button-type` | string | `button` | `button` `submit` `reset` |
-| `loading` | bool | `false` | Affiche un spinner et désactive |
-| `disabled` | bool | `false` | |
-| `full` | bool | `false` | Largeur 100% |
-| `square` | bool | `false` | Ratio 1:1 (bouton icône) |
-| `confirm` | string | — | Message de confirmation `window.confirm()` |
+| Prop            | Type   | Défaut    | Valeurs                                                             |
+| --------------- | ------ | --------- | ------------------------------------------------------------------- |
+| `variant`       | string | `solid`   | `solid` `outline` `ghost` `soft` `link`                             |
+| `color`         | string | `primary` | `primary` `secondary` `neutral` `success` `warning` `danger` `info` |
+| `size`          | string | `md`      | `xs` `sm` `md` `lg` `xl`                                            |
+| `rounded`       | string | `md`      | `none` `sm` `md` `lg` `full`                                        |
+| `icon`          | string | —         | Nom d'icône Heroicons (ex. `plus`, `trash`)                         |
+| `icon-trailing` | string | —         | Icône positionnée après le texte                                    |
+| `href`          | string | —         | Rend le bouton comme `<a href="...">`                               |
+| `button-type`   | string | `button`  | `button` `submit` `reset`                                           |
+| `loading`       | bool   | `false`   | Affiche un spinner et désactive                                     |
+| `disabled`      | bool   | `false`   |                                                                     |
+| `full`          | bool   | `false`   | Largeur 100%                                                        |
+| `square`        | bool   | `false`   | Ratio 1:1 (bouton icône)                                            |
+| `confirm`       | string | —         | Message de confirmation `window.confirm()`                          |
 
 ---
 
@@ -341,15 +341,15 @@ Bouton polyvalent. Peut être rendu comme `<button>` ou `<a>` selon la présence
 <x-ds::badge color="danger" dismiss>Erreur</x-ds::badge>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `variant` | string | `soft` | `soft` `solid` `outline` |
-| `color` | string | `primary` | `primary` `secondary` `neutral` `success` `warning` `danger` `info` |
-| `size` | string | `sm` | `xs` `sm` `md` |
-| `rounded` | string | `full` | `sm` `md` `full` |
-| `icon` | string | — | Icône Heroicons |
-| `dot` | bool | `false` | Affiche un point coloré |
-| `dismiss` | bool | `false` | Bouton de fermeture (Alpine) |
+| Prop      | Type   | Défaut    | Valeurs                                                             |
+| --------- | ------ | --------- | ------------------------------------------------------------------- |
+| `variant` | string | `soft`    | `soft` `solid` `outline`                                            |
+| `color`   | string | `primary` | `primary` `secondary` `neutral` `success` `warning` `danger` `info` |
+| `size`    | string | `sm`      | `xs` `sm` `md`                                                      |
+| `rounded` | string | `full`    | `sm` `md` `full`                                                    |
+| `icon`    | string | —         | Icône Heroicons                                                     |
+| `dot`     | bool   | `false`   | Affiche un point coloré                                             |
+| `dismiss` | bool   | `false`   | Bouton de fermeture (Alpine)                                        |
 
 ---
 
@@ -379,23 +379,23 @@ Représentation visuelle d'un utilisateur. Utilise une image ou des initiales en
 
 **Avatar — props :**
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `src` | string | — | URL de l'image |
-| `alt` | string | — | Texte alternatif |
-| `initials` | string | — | 1 ou 2 lettres affichées si pas d'image |
-| `size` | string | `md` | `xs` `sm` `md` `lg` `xl` `2xl` |
-| `shape` | string | `circle` | `circle` `square` `rounded` |
-| `status` | string | — | `online` `offline` `busy` `away` |
-| `color` | string | `primary` | Couleur du fond des initiales |
+| Prop       | Type   | Défaut    | Valeurs                                 |
+| ---------- | ------ | --------- | --------------------------------------- |
+| `src`      | string | —         | URL de l'image                          |
+| `alt`      | string | —         | Texte alternatif                        |
+| `initials` | string | —         | 1 ou 2 lettres affichées si pas d'image |
+| `size`     | string | `md`      | `xs` `sm` `md` `lg` `xl` `2xl`          |
+| `shape`    | string | `circle`  | `circle` `square` `rounded`             |
+| `status`   | string | —         | `online` `offline` `busy` `away`        |
+| `color`    | string | `primary` | Couleur du fond des initiales           |
 
 **AvatarGroup — props :**
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `max` | int | `5` | Nombre maximum d'avatars affichés |
-| `size` | string | `md` | Taille appliquée à tous les avatars |
-| `overlap` | string | `-ml-3` | Classe de chevauchement |
+| Prop      | Type   | Défaut  | Description                         |
+| --------- | ------ | ------- | ----------------------------------- |
+| `max`     | int    | `5`     | Nombre maximum d'avatars affichés   |
+| `size`    | string | `md`    | Taille appliquée à tous les avatars |
+| `overlap` | string | `-ml-3` | Classe de chevauchement             |
 
 ---
 
@@ -409,11 +409,11 @@ Indicateur de chargement circulaire.
 <x-ds::spinner label="Chargement des données..." />
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `size` | string | `md` | `xs` `sm` `md` `lg` `xl` |
+| Prop    | Type   | Défaut    | Valeurs                                                         |
+| ------- | ------ | --------- | --------------------------------------------------------------- |
+| `size`  | string | `md`      | `xs` `sm` `md` `lg` `xl`                                        |
 | `color` | string | `primary` | `primary` `neutral` `success` `warning` `danger` `info` `white` |
-| `label` | string | — | Texte visible à côté du spinner |
+| `label` | string | —         | Texte visible à côté du spinner                                 |
 
 ---
 
@@ -427,12 +427,12 @@ Séparateur horizontal ou vertical.
 <x-ds::divider orientation="vertical" />
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `orientation` | string | `horizontal` | `horizontal` `vertical` |
-| `variant` | string | `solid` | `solid` `dashed` `dotted` |
-| `color` | string | `default` | `default` `muted` `primary` |
-| `align` | string | `center` | `left` `center` `right` (pour le texte du slot) |
+| Prop          | Type   | Défaut       | Valeurs                                         |
+| ------------- | ------ | ------------ | ----------------------------------------------- |
+| `orientation` | string | `horizontal` | `horizontal` `vertical`                         |
+| `variant`     | string | `solid`      | `solid` `dashed` `dotted`                       |
+| `color`       | string | `default`    | `default` `muted` `primary`                     |
+| `align`       | string | `center`     | `left` `center` `right` (pour le texte du slot) |
 
 ---
 
@@ -452,9 +452,9 @@ Affichage d'une touche clavier pour les raccourcis.
 </span>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `size` | string | `md` | `sm` `md` `lg` |
+| Prop   | Type   | Défaut | Valeurs        |
+| ------ | ------ | ------ | -------------- |
+| `size` | string | `md`   | `sm` `md` `lg` |
 
 ---
 
@@ -468,13 +468,13 @@ Affichage d'une touche clavier pour les raccourcis.
 <x-ds::chip dismissible x-on:dismiss="removeTag('php')">PHP</x-ds::chip>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `color` | string | `neutral` | `primary` `neutral` `success` `warning` `danger` `info` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `active` | bool | `false` | Style actif/sélectionné |
-| `dismissible` | bool | `false` | Bouton de fermeture |
-| `icon` | string | — | Icône Heroicons |
+| Prop          | Type   | Défaut    | Valeurs                                                 |
+| ------------- | ------ | --------- | ------------------------------------------------------- |
+| `color`       | string | `neutral` | `primary` `neutral` `success` `warning` `danger` `info` |
+| `size`        | string | `md`      | `sm` `md` `lg`                                          |
+| `active`      | bool   | `false`   | Style actif/sélectionné                                 |
+| `dismissible` | bool   | `false`   | Bouton de fermeture                                     |
+| `icon`        | string | —         | Icône Heroicons                                         |
 
 ---
 
@@ -512,27 +512,27 @@ Champ de saisie texte complet avec prise en charge des états de validation.
 <x-ds::input variant="ghost" name="q" />
 ```
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `name` | string | — | Attribut `name` du champ |
-| `id` | string | valeur de `name` | Attribut `id` |
-| `type` | string | `text` | `text` `email` `password` `number` `tel` `url` `search` |
-| `variant` | string | `bordered` | `bordered` `filled` `ghost` `underline` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `label` | string | — | Label affiché au-dessus |
-| `hint` | string | — | Texte d'aide affiché en dessous |
-| `error` | string | — | Message d'erreur (remplace `hint`, style rouge) |
-| `icon` | string | — | Icône Heroicons à gauche |
-| `icon-trailing` | string | — | Icône à droite |
-| `prefix` | string | — | Texte collé à gauche (ex. `€`, `https://`) |
-| `suffix` | string | — | Texte collé à droite (ex. `.com`) |
-| `placeholder` | string | — | |
-| `required` | bool | `false` | |
-| `disabled` | bool | `false` | |
-| `readonly` | bool | `false` | |
-| `loading` | bool | `false` | Spinner à droite |
-| `clearable` | bool | `false` | Bouton effacer (Alpine) |
-| `autocomplete` | string | `off` | |
+| Prop            | Type   | Défaut           | Description                                             |
+| --------------- | ------ | ---------------- | ------------------------------------------------------- |
+| `name`          | string | —                | Attribut `name` du champ                                |
+| `id`            | string | valeur de `name` | Attribut `id`                                           |
+| `type`          | string | `text`           | `text` `email` `password` `number` `tel` `url` `search` |
+| `variant`       | string | `bordered`       | `bordered` `filled` `ghost` `underline`                 |
+| `size`          | string | `md`             | `sm` `md` `lg`                                          |
+| `label`         | string | —                | Label affiché au-dessus                                 |
+| `hint`          | string | —                | Texte d'aide affiché en dessous                         |
+| `error`         | string | —                | Message d'erreur (remplace `hint`, style rouge)         |
+| `icon`          | string | —                | Icône Heroicons à gauche                                |
+| `icon-trailing` | string | —                | Icône à droite                                          |
+| `prefix`        | string | —                | Texte collé à gauche (ex. `€`, `https://`)              |
+| `suffix`        | string | —                | Texte collé à droite (ex. `.com`)                       |
+| `placeholder`   | string | —                |                                                         |
+| `required`      | bool   | `false`          |                                                         |
+| `disabled`      | bool   | `false`          |                                                         |
+| `readonly`      | bool   | `false`          |                                                         |
+| `loading`       | bool   | `false`          | Spinner à droite                                        |
+| `clearable`     | bool   | `false`          | Bouton effacer (Alpine)                                 |
+| `autocomplete`  | string | `off`            |                                                         |
 
 ---
 
@@ -551,19 +551,19 @@ Zone de saisie multi-lignes.
 />
 ```
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `name` | string | — | |
-| `label` | string | — | |
-| `hint` | string | — | |
-| `error` | string | — | |
-| `variant` | string | `bordered` | `bordered` `filled` `ghost` `underline` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `rows` | int | `4` | Nombre de lignes |
-| `autoresize` | bool | `false` | Hauteur automatique (Alpine) |
-| `disabled` | bool | `false` | |
-| `readonly` | bool | `false` | |
-| `required` | bool | `false` | |
+| Prop         | Type   | Défaut     | Description                             |
+| ------------ | ------ | ---------- | --------------------------------------- |
+| `name`       | string | —          |                                         |
+| `label`      | string | —          |                                         |
+| `hint`       | string | —          |                                         |
+| `error`      | string | —          |                                         |
+| `variant`    | string | `bordered` | `bordered` `filled` `ghost` `underline` |
+| `size`       | string | `md`       | `sm` `md` `lg`                          |
+| `rows`       | int    | `4`        | Nombre de lignes                        |
+| `autoresize` | bool   | `false`    | Hauteur automatique (Alpine)            |
+| `disabled`   | bool   | `false`    |                                         |
+| `readonly`   | bool   | `false`    |                                         |
+| `required`   | bool   | `false`    |                                         |
 
 ---
 
@@ -584,18 +584,18 @@ Liste déroulante avec options.
 />
 ```
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `name` | string | — | |
-| `options` | array | `[]` | Tableau associatif `['valeur' => 'Label']` |
-| `placeholder` | string | — | Option vide initiale |
-| `label` | string | — | |
-| `hint` | string | — | |
-| `error` | string | — | |
-| `variant` | string | `bordered` | `bordered` `filled` `ghost` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `disabled` | bool | `false` | |
-| `required` | bool | `false` | |
+| Prop          | Type   | Défaut     | Description                                |
+| ------------- | ------ | ---------- | ------------------------------------------ |
+| `name`        | string | —          |                                            |
+| `options`     | array  | `[]`       | Tableau associatif `['valeur' => 'Label']` |
+| `placeholder` | string | —          | Option vide initiale                       |
+| `label`       | string | —          |                                            |
+| `hint`        | string | —          |                                            |
+| `error`       | string | —          |                                            |
+| `variant`     | string | `bordered` | `bordered` `filled` `ghost`                |
+| `size`        | string | `md`       | `sm` `md` `lg`                             |
+| `disabled`    | bool   | `false`    |                                            |
+| `required`    | bool   | `false`    |                                            |
 
 ---
 
@@ -608,17 +608,17 @@ Case à cocher avec label.
 <x-ds::checkbox name="newsletter" label="Recevoir les newsletters" color="success" />
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `name` | string | — | |
-| `value` | string | `1` | Valeur soumise |
-| `label` | string | — | |
-| `hint` | string | — | |
-| `error` | string | — | |
-| `color` | string | `primary` | `primary` `success` `danger` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `disabled` | bool | `false` | |
-| `required` | bool | `false` | |
+| Prop       | Type   | Défaut    | Valeurs                      |
+| ---------- | ------ | --------- | ---------------------------- |
+| `name`     | string | —         |                              |
+| `value`    | string | `1`       | Valeur soumise               |
+| `label`    | string | —         |                              |
+| `hint`     | string | —         |                              |
+| `error`    | string | —         |                              |
+| `color`    | string | `primary` | `primary` `success` `danger` |
+| `size`     | string | `md`      | `sm` `md` `lg`               |
+| `disabled` | bool   | `false`   |                              |
+| `required` | bool   | `false`   |                              |
 
 ---
 
@@ -636,23 +636,23 @@ Boutons radio individuels ou groupés.
 
 **RadioGroup — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `label` | string | Label du groupe |
-| `hint` | string | Texte d'aide |
-| `error` | string | Message d'erreur |
+| Prop          | Type   | Description                         |
+| ------------- | ------ | ----------------------------------- |
+| `label`       | string | Label du groupe                     |
+| `hint`        | string | Texte d'aide                        |
+| `error`       | string | Message d'erreur                    |
 | `orientation` | string | `vertical` (défaut) ou `horizontal` |
 
 **Radio — props :**
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `name` | string | — | Doit être identique dans le groupe |
-| `value` | string | — | Valeur soumise |
-| `label` | string | — | |
-| `color` | string | `primary` | `primary` `success` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `disabled` | bool | `false` | |
+| Prop       | Type   | Défaut    | Description                        |
+| ---------- | ------ | --------- | ---------------------------------- |
+| `name`     | string | —         | Doit être identique dans le groupe |
+| `value`    | string | —         | Valeur soumise                     |
+| `label`    | string | —         |                                    |
+| `color`    | string | `primary` | `primary` `success`                |
+| `size`     | string | `md`      | `sm` `md` `lg`                     |
+| `disabled` | bool   | `false`   |                                    |
 
 ---
 
@@ -665,15 +665,15 @@ Interrupteur on/off (switch).
 <x-ds::toggle name="dark_mode" color="success" size="lg" :checked="true" />
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `name` | string | — | |
-| `label` | string | — | |
-| `hint` | string | — | |
-| `color` | string | `primary` | `primary` `success` `danger` `warning` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `checked` | bool | `false` | État initial |
-| `disabled` | bool | `false` | |
+| Prop       | Type   | Défaut    | Valeurs                                |
+| ---------- | ------ | --------- | -------------------------------------- |
+| `name`     | string | —         |                                        |
+| `label`    | string | —         |                                        |
+| `hint`     | string | —         |                                        |
+| `color`    | string | `primary` | `primary` `success` `danger` `warning` |
+| `size`     | string | `md`      | `sm` `md` `lg`                         |
+| `checked`  | bool   | `false`   | État initial                           |
+| `disabled` | bool   | `false`   |                                        |
 
 ---
 
@@ -686,17 +686,17 @@ Curseur pour sélectionner une valeur dans un intervalle.
 <x-ds::range name="opacity" label="Opacité" show-value />
 ```
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `name` | string | — | |
-| `label` | string | — | |
-| `hint` | string | — | |
-| `min` | int | `0` | |
-| `max` | int | `100` | |
-| `step` | int | `1` | |
-| `show-value` | bool | `false` | Affiche la valeur courante (Alpine) |
-| `color` | string | `primary` | |
-| `disabled` | bool | `false` | |
+| Prop         | Type   | Défaut    | Description                         |
+| ------------ | ------ | --------- | ----------------------------------- |
+| `name`       | string | —         |                                     |
+| `label`      | string | —         |                                     |
+| `hint`       | string | —         |                                     |
+| `min`        | int    | `0`       |                                     |
+| `max`        | int    | `100`     |                                     |
+| `step`       | int    | `1`       |                                     |
+| `show-value` | bool   | `false`   | Affiche la valeur courante (Alpine) |
+| `color`      | string | `primary` |                                     |
+| `disabled`   | bool   | `false`   |                                     |
 
 ---
 
@@ -715,14 +715,14 @@ Conteneur pour un champ de formulaire avec label, hint et gestion des erreurs.
 </x-ds::form-group>
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `label` | string | Label du champ |
-| `for` | string | Correspond à l'`id` du champ |
-| `hint` | string | Texte d'aide |
-| `error` | string | Message d'erreur |
-| `required` | bool | Affiche un `*` rouge |
-| `inline` | bool | Label et champ côte à côte |
+| Prop       | Type   | Description                  |
+| ---------- | ------ | ---------------------------- |
+| `label`    | string | Label du champ               |
+| `for`      | string | Correspond à l'`id` du champ |
+| `hint`     | string | Texte d'aide                 |
+| `error`    | string | Message d'erreur             |
+| `required` | bool   | Affiche un `*` rouge         |
+| `inline`   | bool   | Label et champ côte à côte   |
 
 ---
 
@@ -737,9 +737,9 @@ Section de formulaire avec titre et description.
 </x-ds::form-section>
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `title` | string | Titre de la section |
+| Prop          | Type   | Description             |
+| ------------- | ------ | ----------------------- |
+| `title`       | string | Titre de la section     |
 | `description` | string | Description optionnelle |
 
 ---
@@ -789,31 +789,31 @@ Conteneur de contenu avec variantes visuelles. Les sous-composants `CardHeader`,
 
 **Card — props :**
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
+| Prop      | Type   | Défaut     | Valeurs                              |
+| --------- | ------ | ---------- | ------------------------------------ |
 | `variant` | string | `bordered` | `bordered` `elevated` `flat` `ghost` |
-| `padding` | string | `md` | `none` `sm` `md` `lg` |
-| `rounded` | string | `xl` | `none` `md` `lg` `xl` `2xl` |
-| `hover` | bool | `false` | Effet de levée au survol |
-| `shadow` | string | `none` | `none` `sm` `md` `lg` |
-| `color` | string | — | Teinte de fond colorée |
+| `padding` | string | `md`       | `none` `sm` `md` `lg`                |
+| `rounded` | string | `xl`       | `none` `md` `lg` `xl` `2xl`          |
+| `hover`   | bool   | `false`    | Effet de levée au survol             |
+| `shadow`  | string | `none`     | `none` `sm` `md` `lg`                |
+| `color`   | string | —          | Teinte de fond colorée               |
 
 **CardHeader — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `title` | string | Titre de la carte |
-| `description` | string | Sous-titre |
-| `padding` | string | `md` par défaut |
-| `separator` | bool | Bordure inférieure |
-| `$actions` | slot | Actions (boutons) alignées à droite |
+| Prop          | Type   | Description                         |
+| ------------- | ------ | ----------------------------------- |
+| `title`       | string | Titre de la carte                   |
+| `description` | string | Sous-titre                          |
+| `padding`     | string | `md` par défaut                     |
+| `separator`   | bool   | Bordure inférieure                  |
+| `$actions`    | slot   | Actions (boutons) alignées à droite |
 
 **CardFooter — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `align` | string | `left` `center` `right` |
-| `separator` | bool | Bordure supérieure |
+| Prop        | Type   | Description             |
+| ----------- | ------ | ----------------------- |
+| `align`     | string | `left` `center` `right` |
+| `separator` | bool   | Bordure supérieure      |
 
 ---
 
@@ -827,11 +827,11 @@ Conteneur centré avec largeur maximale.
 </x-ds::container>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `size` | string | `xl` | `sm` `md` `lg` `xl` `2xl` `full` |
-| `center` | bool | `true` | Centrage horizontal |
-| `padding` | bool | `true` | Padding horizontal |
+| Prop      | Type   | Défaut | Valeurs                          |
+| --------- | ------ | ------ | -------------------------------- |
+| `size`    | string | `xl`   | `sm` `md` `lg` `xl` `2xl` `full` |
+| `center`  | bool   | `true` | Centrage horizontal              |
+| `padding` | bool   | `true` | Padding horizontal               |
 
 ---
 
@@ -845,12 +845,12 @@ Section de page avec titre et description.
 </x-ds::section>
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `title` | string | Titre affiché au-dessus du slot |
-| `description` | string | Sous-titre |
-| `padding` | string | Espacement vertical |
-| `align` | string | `left` `center` `right` |
+| Prop          | Type   | Description                     |
+| ------------- | ------ | ------------------------------- |
+| `title`       | string | Titre affiché au-dessus du slot |
+| `description` | string | Sous-titre                      |
+| `padding`     | string | Espacement vertical             |
+| `align`       | string | `left` `center` `right`         |
 
 ---
 
@@ -888,12 +888,12 @@ Conteneur léger avec titre optionnel.
 </x-ds::panel>
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `title` | string | Titre du panneau |
+| Prop      | Type   | Description          |
+| --------- | ------ | -------------------- |
+| `title`   | string | Titre du panneau     |
 | `variant` | string | `default` `bordered` |
-| `color` | string | Teinte de fond |
-| `padding` | string | Espacement interne |
+| `color`   | string | Teinte de fond       |
+| `padding` | string | Espacement interne   |
 
 ---
 
@@ -911,11 +911,11 @@ Fil d'Ariane pour indiquer la position dans l'arborescence.
 ]" />
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `items` | array | Tableau de `['label' => '...', 'href' => '...']` |
-| `separator` | string | Séparateur (`/` par défaut) |
-| `size` | string | `sm` `md` `lg` |
+| Prop        | Type   | Description                                      |
+| ----------- | ------ | ------------------------------------------------ |
+| `items`     | array  | Tableau de `['label' => '...', 'href' => '...']` |
+| `separator` | string | Séparateur (`/` par défaut)                      |
+| `size`      | string | `sm` `md` `lg`                                   |
 
 ---
 
@@ -934,14 +934,14 @@ Pagination avancée avec calcul automatique des plages et ellipsis.
 
 > **Avec Livewire DataTable :** La pagination est gérée automatiquement par le composant `<livewire:ds::data-table>`.
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `current-page` | int | `1` | Page actuelle |
-| `total-pages` | int | `1` | Nombre total de pages |
-| `per-page` | int | `15` | Items par page (pour l'info) |
-| `total` | int | `0` | Total d'items |
-| `show-info` | bool | `true` | Affiche "X à Y de Z résultats" |
-| `size` | string | `md` | `sm` `md` `lg` |
+| Prop           | Type   | Défaut | Description                    |
+| -------------- | ------ | ------ | ------------------------------ |
+| `current-page` | int    | `1`    | Page actuelle                  |
+| `total-pages`  | int    | `1`    | Nombre total de pages          |
+| `per-page`     | int    | `15`   | Items par page (pour l'info)   |
+| `total`        | int    | `0`    | Total d'items                  |
+| `show-info`    | bool   | `true` | Affiche "X à Y de Z résultats" |
+| `size`         | string | `md`   | `sm` `md` `lg`                 |
 
 ---
 
@@ -964,14 +964,14 @@ Indicateur d'étapes pour les formulaires multi-étapes ou onboarding.
 
 **Step — props :**
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `number` | int | `1` | Numéro affiché |
-| `title` | string | — | Titre de l'étape |
-| `description` | string | — | Sous-titre |
-| `status` | string | `pending` | `pending` `current` `completed` |
-| `icon` | string | — | Icône Heroicons (remplace le numéro) |
-| `last` | bool | `false` | Supprime le connecteur après |
+| Prop          | Type   | Défaut    | Valeurs                              |
+| ------------- | ------ | --------- | ------------------------------------ |
+| `number`      | int    | `1`       | Numéro affiché                       |
+| `title`       | string | —         | Titre de l'étape                     |
+| `description` | string | —         | Sous-titre                           |
+| `status`      | string | `pending` | `pending` `current` `completed`      |
+| `icon`        | string | —         | Icône Heroicons (remplace le numéro) |
+| `last`        | bool   | `false`   | Supprime le connecteur après         |
 
 ---
 
@@ -997,13 +997,13 @@ Composant de navigation (sidebar, onglets, menus).
 
 **NavItem — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `href` | string | Lien de navigation |
-| `active` | bool | État actif (style mis en évidence) |
-| `icon` | string | Icône Heroicons |
-| `badge` | string | Compteur affiché à droite |
-| `disabled` | bool | Désactive le lien |
+| Prop       | Type   | Description                        |
+| ---------- | ------ | ---------------------------------- |
+| `href`     | string | Lien de navigation                 |
+| `active`   | bool   | État actif (style mis en évidence) |
+| `icon`     | string | Icône Heroicons                    |
+| `badge`    | string | Compteur affiché à droite          |
+| `disabled` | bool   | Désactive le lien                  |
 
 ---
 
@@ -1027,13 +1027,13 @@ Message d'alerte contextuel.
 </x-ds::alert>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `color` | string | `info` | `info` `success` `warning` `danger` `neutral` |
-| `variant` | string | `soft` | `soft` `solid` `outline` `left-accent` |
-| `title` | string | — | Titre en gras |
-| `icon` | string | auto | Icône Heroicons (auto-sélectionnée par couleur) |
-| `dismissible` | bool | `false` | Bouton de fermeture (Alpine) |
+| Prop          | Type   | Défaut  | Valeurs                                         |
+| ------------- | ------ | ------- | ----------------------------------------------- |
+| `color`       | string | `info`  | `info` `success` `warning` `danger` `neutral`   |
+| `variant`     | string | `soft`  | `soft` `solid` `outline` `left-accent`          |
+| `title`       | string | —       | Titre en gras                                   |
+| `icon`        | string | auto    | Icône Heroicons (auto-sélectionnée par couleur) |
+| `dismissible` | bool   | `false` | Bouton de fermeture (Alpine)                    |
 
 ---
 
@@ -1058,16 +1058,16 @@ Barre de progression simple ou multi-segments.
 
 **Progress — props :**
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `value` | int | `0` | Valeur actuelle |
-| `max` | int | `100` | Valeur maximale |
-| `color` | string | `primary` | |
-| `size` | string | `md` | `xs` `sm` `md` `lg` |
-| `label` | string | — | Label au-dessus |
-| `show-value` | bool | `false` | Affiche le pourcentage |
-| `striped` | bool | `false` | Motif rayé |
-| `animated` | bool | `false` | Animation des rayures |
+| Prop         | Type   | Défaut    | Description            |
+| ------------ | ------ | --------- | ---------------------- |
+| `value`      | int    | `0`       | Valeur actuelle        |
+| `max`        | int    | `100`     | Valeur maximale        |
+| `color`      | string | `primary` |                        |
+| `size`       | string | `md`      | `xs` `sm` `md` `lg`    |
+| `label`      | string | —         | Label au-dessus        |
+| `show-value` | bool   | `false`   | Affiche le pourcentage |
+| `striped`    | bool   | `false`   | Motif rayé             |
+| `animated`   | bool   | `false`   | Animation des rayures  |
 
 ---
 
@@ -1092,13 +1092,13 @@ Placeholder de chargement (shimmer effect).
 </x-ds::card>
 ```
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `variant` | string | `default` | `default` `text` `circle` `rect` |
-| `width` | string | — | Largeur (Tailwind : `32`, `full`, etc.) |
-| `height` | string | — | Hauteur |
-| `lines` | int | `1` | Nombre de lignes de texte |
-| `circle` | bool | `false` | Forme circulaire |
+| Prop      | Type   | Défaut    | Description                             |
+| --------- | ------ | --------- | --------------------------------------- |
+| `variant` | string | `default` | `default` `text` `circle` `rect`        |
+| `width`   | string | —         | Largeur (Tailwind : `32`, `full`, etc.) |
+| `height`  | string | —         | Hauteur                                 |
+| `lines`   | int    | `1`       | Nombre de lignes de texte               |
+| `circle`  | bool   | `false`   | Forme circulaire                        |
 
 ---
 
@@ -1116,12 +1116,12 @@ Message affiché quand une liste ou section est vide.
 </x-ds::empty-state>
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `title` | string | Titre principal |
+| Prop          | Type   | Description        |
+| ------------- | ------ | ------------------ |
+| `title`       | string | Titre principal    |
 | `description` | string | Message explicatif |
-| `icon` | string | Icône Heroicons |
-| `size` | string | `sm` `md` `lg` |
+| `icon`        | string | Icône Heroicons    |
+| `size`        | string | `sm` `md` `lg`     |
 
 ---
 
@@ -1154,16 +1154,16 @@ Affichage de métriques clés avec tendance.
 
 **Stat — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `label` | string | Libellé de la métrique |
-| `value` | string | Valeur principale |
-| `trend` | string | `up` `down` `neutral` |
+| Prop          | Type   | Description                     |
+| ------------- | ------ | ------------------------------- |
+| `label`       | string | Libellé de la métrique          |
+| `value`       | string | Valeur principale               |
+| `trend`       | string | `up` `down` `neutral`           |
 | `trend-value` | string | Variation affichée (ex. `+12%`) |
-| `trend-color` | string | Couleur forcée de la tendance |
-| `icon` | string | Icône Heroicons |
-| `icon-color` | string | Couleur de fond de l'icône |
-| `description` | string | Texte secondaire |
+| `trend-color` | string | Couleur forcée de la tendance   |
+| `icon`        | string | Icône Heroicons                 |
+| `icon-color`  | string | Couleur de fond de l'icône      |
+| `description` | string | Texte secondaire                |
 
 **StatGroup — props :** `cols` (1–4), `variant`
 
@@ -1187,16 +1187,16 @@ Tableau statique (données côté serveur sans interactivité Livewire).
 />
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `columns` | array | `[['key', 'label', 'align']]` |
-| `rows` | array | Tableau de données |
-| `striped` | bool | Lignes alternées |
-| `hoverable` | bool | Mise en évidence au survol |
-| `bordered` | bool | Bordures de cellules |
-| `compact` | bool | Espacement réduit |
-| `responsive` | bool | Défilement horizontal sur mobile |
-| `caption` | string | Légende du tableau |
+| Prop         | Type   | Description                      |
+| ------------ | ------ | -------------------------------- |
+| `columns`    | array  | `[['key', 'label', 'align']]`    |
+| `rows`       | array  | Tableau de données               |
+| `striped`    | bool   | Lignes alternées                 |
+| `hoverable`  | bool   | Mise en évidence au survol       |
+| `bordered`   | bool   | Bordures de cellules             |
+| `compact`    | bool   | Espacement réduit                |
+| `responsive` | bool   | Défilement horizontal sur mobile |
+| `caption`    | string | Légende du tableau               |
 
 > Pour un tableau **interactif** (tri, recherche, pagination), utiliser `<livewire:ds::data-table>`.
 
@@ -1233,14 +1233,14 @@ Historique chronologique d'événements.
 
 **TimelineItem — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `date` | string | Date ou heure de l'événement |
-| `title` | string | Titre |
-| `description` | string | Détail |
-| `icon` | string | Icône Heroicons |
-| `color` | string | Couleur du point/icône |
-| `last` | bool | `false` — supprime le connecteur |
+| Prop          | Type   | Description                      |
+| ------------- | ------ | -------------------------------- |
+| `date`        | string | Date ou heure de l'événement     |
+| `title`       | string | Titre                            |
+| `description` | string | Détail                           |
+| `icon`        | string | Icône Heroicons                  |
+| `color`       | string | Couleur du point/icône           |
+| `last`        | bool   | `false` — supprime le connecteur |
 
 ---
 
@@ -1251,7 +1251,7 @@ Affichage de blocs de code avec coloration syntaxique et copie.
 ```blade
 {{-- Bloc --}}
 <x-ds::code language="php" copy>
-composer require ds/ui
+composer require darken10/wirestack
 </x-ds::code>
 
 {{-- Inline --}}
@@ -1263,11 +1263,11 @@ composer require ds/ui
 
 **Code — props :**
 
-| Prop | Type | Description |
-|---|---|---|
+| Prop       | Type   | Description                         |
+| ---------- | ------ | ----------------------------------- |
 | `language` | string | `bash` `php` `js` `html` `css` etc. |
-| `inline` | bool | Affichage inline |
-| `copy` | bool | Ajoute le bouton copier |
+| `inline`   | bool   | Affichage inline                    |
+| `copy`     | bool   | Ajoute le bouton copier             |
 
 ---
 
@@ -1292,22 +1292,22 @@ Menu déroulant au clic ou au survol.
 
 **Dropdown — props :**
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `align` | string | `left` | `left` `right` `center` |
-| `width` | string | `48` | Largeur en unités Tailwind |
-| `arrow` | bool | `false` | Flèche décorative |
-| `trigger` | slot | — | Élément déclencheur |
+| Prop      | Type   | Défaut  | Description                |
+| --------- | ------ | ------- | -------------------------- |
+| `align`   | string | `left`  | `left` `right` `center`    |
+| `width`   | string | `48`    | Largeur en unités Tailwind |
+| `arrow`   | bool   | `false` | Flèche décorative          |
+| `trigger` | slot   | —       | Élément déclencheur        |
 
 **DropdownItem — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `href` | string | Rend l'item comme `<a>` |
-| `icon` | string | Icône Heroicons |
-| `danger` | bool | Style rouge |
-| `disabled` | bool | Désactivé |
-| `separator` | bool | Affiche une ligne de séparation |
+| Prop        | Type   | Description                     |
+| ----------- | ------ | ------------------------------- |
+| `href`      | string | Rend l'item comme `<a>`         |
+| `icon`      | string | Icône Heroicons                 |
+| `danger`    | bool   | Style rouge                     |
+| `disabled`  | bool   | Désactivé                       |
+| `separator` | bool   | Affiche une ligne de séparation |
 
 ---
 
@@ -1325,13 +1325,13 @@ Info-bulle affichée au survol.
 </x-ds::tooltip>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `text` | string | — | Contenu de l'info-bulle |
-| `position` | string | `top` | `top` `bottom` `left` `right` |
-| `color` | string | `dark` | `dark` `light` `primary` |
-| `arrow` | bool | `false` | Flèche indicatrice |
-| `delay` | int | `0` | Délai d'apparition en ms |
+| Prop       | Type   | Défaut  | Valeurs                       |
+| ---------- | ------ | ------- | ----------------------------- |
+| `text`     | string | —       | Contenu de l'info-bulle       |
+| `position` | string | `top`   | `top` `bottom` `left` `right` |
+| `color`    | string | `dark`  | `dark` `light` `primary`      |
+| `arrow`    | bool   | `false` | Flèche indicatrice            |
+| `delay`    | int    | `0`     | Délai d'apparition en ms      |
 
 ---
 
@@ -1350,12 +1350,12 @@ Panneau contextuel plus riche qu'un tooltip.
 </x-ds::popover>
 ```
 
-| Prop | Type | Description |
-|---|---|---|
+| Prop       | Type   | Description                   |
+| ---------- | ------ | ----------------------------- |
 | `position` | string | `top` `bottom` `left` `right` |
-| `align` | string | `start` `center` `end` |
-| `width` | string | Largeur en unités Tailwind |
-| `title` | string | Titre du popover |
+| `align`    | string | `start` `center` `end`        |
+| `width`    | string | Largeur en unités Tailwind    |
+| `title`    | string | Titre du popover              |
 
 ---
 
@@ -1385,23 +1385,23 @@ Système d'onglets avec trois variantes visuelles.
 
 **Tabs — props :**
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `tabs` | array | — | Liste des IDs/libellés d'onglets |
-| `variant` | string | `underline` | `underline` `pills` `boxed` |
-| `size` | string | `md` | `sm` `md` `lg` |
-| `color` | string | `primary` | |
-| `align` | string | `left` | `left` `center` `right` |
-| `full` | bool | `false` | Onglets en pleine largeur |
+| Prop      | Type   | Défaut      | Valeurs                          |
+| --------- | ------ | ----------- | -------------------------------- |
+| `tabs`    | array  | —           | Liste des IDs/libellés d'onglets |
+| `variant` | string | `underline` | `underline` `pills` `boxed`      |
+| `size`    | string | `md`        | `sm` `md` `lg`                   |
+| `color`   | string | `primary`   |                                  |
+| `align`   | string | `left`      | `left` `center` `right`          |
+| `full`    | bool   | `false`     | Onglets en pleine largeur        |
 
 **Tab — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `id` | string | Doit correspondre à une entrée de `tabs` |
-| `label` | string | Libellé (si différent de l'id) |
-| `icon` | string | Icône Heroicons |
-| `badge` | string | Compteur |
+| Prop    | Type   | Description                              |
+| ------- | ------ | ---------------------------------------- |
+| `id`    | string | Doit correspondre à une entrée de `tabs` |
+| `label` | string | Libellé (si différent de l'id)           |
+| `icon`  | string | Icône Heroicons                          |
+| `badge` | string | Compteur                                 |
 
 ---
 
@@ -1427,19 +1427,19 @@ Contenu expandable/rétractable.
 
 **Accordion — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `multiple` | bool | `false` — un seul item ouvert à la fois |
-| `variant` | string | `default` `bordered` `flush` |
+| Prop       | Type   | Description                             |
+| ---------- | ------ | --------------------------------------- |
+| `multiple` | bool   | `false` — un seul item ouvert à la fois |
+| `variant`  | string | `default` `bordered` `flush`            |
 
 **AccordionItem — props :**
 
-| Prop | Type | Description |
-|---|---|---|
-| `title` | string | En-tête de l'item |
-| `open` | bool | Ouvert par défaut |
-| `icon` | string | Icône Heroicons |
-| `disabled` | bool | |
+| Prop       | Type   | Description       |
+| ---------- | ------ | ----------------- |
+| `title`    | string | En-tête de l'item |
+| `open`     | bool   | Ouvert par défaut |
+| `icon`     | string | Icône Heroicons   |
+| `disabled` | bool   |                   |
 
 ---
 
@@ -1456,11 +1456,11 @@ Section repliable simple avec toggle.
 </x-ds::collapsible>
 ```
 
-| Prop | Type | Description |
-|---|---|---|
+| Prop    | Type   | Description            |
+| ------- | ------ | ---------------------- |
 | `label` | string | Texte du bouton toggle |
-| `open` | bool | Ouvert par défaut |
-| `icon` | string | Icône Heroicons |
+| `open`  | bool   | Ouvert par défaut      |
+| `icon`  | string | Icône Heroicons        |
 
 ---
 
@@ -1494,18 +1494,19 @@ Fenêtre modale contrôlée depuis PHP ou JavaScript.
 {{-- $this->dispatch('ds-modal-open:confirm-delete') --}}
 ```
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `modal-id` | string | `modal` | Identifiant unique de la modale |
-| `size` | string | `md` | `sm` `md` `lg` `xl` `2xl` `full` |
-| `title` | string | — | Titre dans l'en-tête |
-| `description` | string | — | Sous-titre dans l'en-tête |
-| `closeable` | bool | `true` | Fermeture via ×, Échap, ou clic extérieur |
-| `backdrop` | bool | `true` | Fond obscurcissant |
+| Prop          | Type   | Défaut  | Description                               |
+| ------------- | ------ | ------- | ----------------------------------------- |
+| `modal-id`    | string | `modal` | Identifiant unique de la modale           |
+| `size`        | string | `md`    | `sm` `md` `lg` `xl` `2xl` `full`          |
+| `title`       | string | —       | Titre dans l'en-tête                      |
+| `description` | string | —       | Sous-titre dans l'en-tête                 |
+| `closeable`   | bool   | `true`  | Fermeture via ×, Échap, ou clic extérieur |
+| `backdrop`    | bool   | `true`  | Fond obscurcissant                        |
 
 **Slots :** `$header`, `$slot` (corps), `$footer`
 
 **Événements écoutés :**
+
 - `ds-modal-open:{modal-id}` — ouvre
 - `ds-modal-close:{modal-id}` — ferme
 
@@ -1531,18 +1532,19 @@ Panneau coulissant depuis un bord de l'écran.
 <x-ds::button onclick="DsDrawer.open('user-drawer')">Modifier</x-ds::button>
 ```
 
-| Prop | Type | Défaut | Valeurs |
-|---|---|---|---|
-| `drawer-id` | string | `drawer` | Identifiant unique |
-| `position` | string | `right` | `left` `right` `top` `bottom` |
-| `size` | string | `md` | `sm` `md` `lg` `xl` `full` |
-| `title` | string | — | Titre dans l'en-tête |
-| `closeable` | bool | `true` | |
-| `backdrop` | bool | `true` | |
+| Prop        | Type   | Défaut   | Valeurs                       |
+| ----------- | ------ | -------- | ----------------------------- |
+| `drawer-id` | string | `drawer` | Identifiant unique            |
+| `position`  | string | `right`  | `left` `right` `top` `bottom` |
+| `size`      | string | `md`     | `sm` `md` `lg` `xl` `full`    |
+| `title`     | string | —        | Titre dans l'en-tête          |
+| `closeable` | bool   | `true`   |                               |
+| `backdrop`  | bool   | `true`   |                               |
 
 **Slots :** `$header`, `$slot` (corps), `$footer`
 
 **Événements écoutés :**
+
 - `ds-drawer-open:{drawer-id}` — ouvre
 - `ds-drawer-close:{drawer-id}` — ferme
 
@@ -1558,14 +1560,16 @@ Gestionnaire de notifications flottantes. **Un seul** dans le layout suffit pour
 ```
 
 **Déclencher depuis JavaScript :**
+
 ```js
-DsToast.success('Enregistré !')
-DsToast.error('Erreur de connexion', { title: 'Erreur réseau' })
-DsToast.warning('Session expirée dans 5 minutes')
-DsToast.info('Nouvelle version disponible', { duration: 0 }) // persistant
+DsToast.success("Enregistré !");
+DsToast.error("Erreur de connexion", { title: "Erreur réseau" });
+DsToast.warning("Session expirée dans 5 minutes");
+DsToast.info("Nouvelle version disponible", { duration: 0 }); // persistant
 ```
 
 **Déclencher depuis Livewire PHP :**
+
 ```php
 // Dans un composant Livewire
 $this->dispatch('ds-toast', type: 'success', message: 'Enregistré !');
@@ -1573,6 +1577,7 @@ $this->dispatch('ds-toast', type: 'error', message: 'Erreur', title: 'Oops');
 ```
 
 **Configuration dans `config/ds.php` :**
+
 ```php
 'toast' => [
     'position' => 'bottom-right', // top-right|top-left|top-center|bottom-right|bottom-left|bottom-center
@@ -1630,17 +1635,18 @@ $rows = [
 
 **Props du composant :**
 
-| Prop | Type | Défaut | Description |
-|---|---|---|---|
-| `columns` | array | `[]` | Définition des colonnes |
-| `rows` | array | `[]` | Données à afficher |
-| `searchable` | bool | `true` | Barre de recherche |
-| `selectable` | bool | `false` | Checkboxes de sélection |
-| `empty-message` | string | `No results found.` | Message quand vide |
-| `per-page` | int | `15` | Items par page |
-| `per-page-options` | array | `[10, 15, 25, 50, 100]` | Options du sélecteur |
+| Prop               | Type   | Défaut                  | Description             |
+| ------------------ | ------ | ----------------------- | ----------------------- |
+| `columns`          | array  | `[]`                    | Définition des colonnes |
+| `rows`             | array  | `[]`                    | Données à afficher      |
+| `searchable`       | bool   | `true`                  | Barre de recherche      |
+| `selectable`       | bool   | `false`                 | Checkboxes de sélection |
+| `empty-message`    | string | `No results found.`     | Message quand vide      |
+| `per-page`         | int    | `15`                    | Items par page          |
+| `per-page-options` | array  | `[10, 15, 25, 50, 100]` | Options du sélecteur    |
 
 **Propriétés Livewire accessibles :**
+
 - `$search` — Terme de recherche actuel
 - `$sortBy` / `$sortDir` — Tri actuel
 - `$selected` — IDs des lignes sélectionnées
@@ -1675,23 +1681,25 @@ Palette de commandes style Spotlight/Linear accessible via `Cmd+K`.
 
 **Structure d'une commande :**
 
-| Clé | Type | Description |
-|---|---|---|
-| `id` | string | Identifiant unique |
-| `label` | string | Libellé principal affiché |
-| `description` | string | Description secondaire |
-| `icon` | string | Icône Heroicons |
-| `action` | string | Nom de l'événement Livewire dispatché à l'exécution |
-| `shortcut` | string | Raccourci affiché (ex. `⌘K`) |
-| `badge` | string | Badge de catégorie |
+| Clé           | Type   | Description                                         |
+| ------------- | ------ | --------------------------------------------------- |
+| `id`          | string | Identifiant unique                                  |
+| `label`       | string | Libellé principal affiché                           |
+| `description` | string | Description secondaire                              |
+| `icon`        | string | Icône Heroicons                                     |
+| `action`      | string | Nom de l'événement Livewire dispatché à l'exécution |
+| `shortcut`    | string | Raccourci affiché (ex. `⌘K`)                        |
+| `badge`       | string | Badge de catégorie                                  |
 
 **Déclencher depuis JS :**
+
 ```js
-DsCommandPalette.open()   // Cmd/Ctrl+K le fait automatiquement
-DsCommandPalette.close()
+DsCommandPalette.open(); // Cmd/Ctrl+K le fait automatiquement
+DsCommandPalette.close();
 ```
 
 **Écouter les actions dans un composant Livewire :**
+
 ```php
 protected function getListeners(): array
 {
@@ -1795,9 +1803,13 @@ Le mode sombre est géré nativement par Tailwind CSS via les classes `dark:*`. 
 
 ```html
 <script>
-    if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-    }
+  if (
+    localStorage.theme === "dark" ||
+    (!localStorage.theme &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  }
 </script>
 ```
 
@@ -1807,27 +1819,27 @@ Le mode sombre est géré nativement par Tailwind CSS via les classes `dark:*`. 
 
 Le design system expose des classes d'animation prêtes à l'emploi :
 
-| Classe | Effet |
-|---|---|
-| `ds-animate-fade-in` | Fondu entrant |
-| `ds-animate-scale-in` | Zoom entrant (modales) |
-| `ds-animate-slide-up` | Glissement depuis le bas (toasts) |
+| Classe                   | Effet                                 |
+| ------------------------ | ------------------------------------- |
+| `ds-animate-fade-in`     | Fondu entrant                         |
+| `ds-animate-scale-in`    | Zoom entrant (modales)                |
+| `ds-animate-slide-up`    | Glissement depuis le bas (toasts)     |
 | `ds-animate-slide-right` | Glissement depuis la droite (drawers) |
-| `ds-animate-slide-left` | Glissement depuis la gauche |
+| `ds-animate-slide-left`  | Glissement depuis la gauche           |
 
 ---
 
 ## Palettes de couleurs
 
-| Couleur | Alias Tailwind | Usage recommandé |
-|---|---|---|
-| `primary` | `blue-*` | Actions principales, CTA |
-| `secondary` | `violet-*` | Actions secondaires |
-| `success` | `emerald-*` | Confirmations, états valides |
-| `warning` | `amber-*` | Avertissements |
-| `danger` | `red-*` | Erreurs, destructions |
-| `info` | `sky-*` | Informations neutres |
-| `neutral` | `zinc-*` | Éléments de structure |
+| Couleur     | Alias Tailwind | Usage recommandé             |
+| ----------- | -------------- | ---------------------------- |
+| `primary`   | `blue-*`       | Actions principales, CTA     |
+| `secondary` | `violet-*`     | Actions secondaires          |
+| `success`   | `emerald-*`    | Confirmations, états valides |
+| `warning`   | `amber-*`      | Avertissements               |
+| `danger`    | `red-*`        | Erreurs, destructions        |
+| `info`      | `sky-*`        | Informations neutres         |
+| `neutral`   | `zinc-*`       | Éléments de structure        |
 
 ---
 
