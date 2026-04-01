@@ -7,7 +7,7 @@
         x-on:click="open = !open"
         class="flex items-center gap-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors focus:outline-none">
         @if($icon)
-            <flux:icon :icon="$icon" class="h-4 w-4" />
+            <x-dynamic-component :component="'flux::icon.'.$icon" class="h-4 w-4" />
         @endif
         @if($label)
             {{ $label }}

@@ -1,6 +1,6 @@
 <div {{ $attributes->class(['flex flex-col items-center justify-center text-center py-12 px-4']) }}>
     <div class="mx-auto flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800 p-4 mb-4">
-        <flux:icon :icon="$icon" class="{{ $iconSizeClass() }} text-zinc-400 dark:text-zinc-500" />
+        <x-dynamic-component :component="'flux::icon.'.$icon" class="{{ $iconSizeClass() }} text-zinc-400 dark:text-zinc-500" />
     </div>
 
     @if($title)

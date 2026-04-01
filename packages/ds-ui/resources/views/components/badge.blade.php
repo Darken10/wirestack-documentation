@@ -7,7 +7,7 @@
     @if($dot)
         <span class="inline-block h-1.5 w-1.5 rounded-full {{ $variantClasses['dotCls'] }}"></span>
     @elseif($icon)
-        <flux:icon :icon="$icon" class="h-3 w-3 shrink-0" />
+        <x-dynamic-component :component="'flux::icon.'.$icon" class="h-3 w-3 shrink-0" />
     @endif
 
     {{ $slot }}

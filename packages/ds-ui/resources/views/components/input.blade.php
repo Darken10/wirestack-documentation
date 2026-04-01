@@ -15,7 +15,7 @@
             </span>
         @elseif($icon)
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-zinc-400 dark:text-zinc-500">
-                <flux:icon :icon="$icon" class="h-4 w-4" />
+                <x-dynamic-component :component="'flux::icon.'.$icon" class="h-4 w-4" />
             </span>
         @endif
 
@@ -42,7 +42,7 @@
             </button>
         @elseif($iconTrailing)
             <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-zinc-400 dark:text-zinc-500">
-                <flux:icon :icon="$iconTrailing" class="h-4 w-4" />
+                <x-dynamic-component :component="'flux::icon.'.$iconTrailing" class="h-4 w-4" />
             </span>
         @endif
 

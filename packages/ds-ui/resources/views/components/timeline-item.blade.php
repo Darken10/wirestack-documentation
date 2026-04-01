@@ -6,7 +6,7 @@
         <div class="relative flex items-start gap-4">
             {{-- dot --}}
             <div class="flex h-8 w-8 items-center justify-center rounded-full ring-8 ring-white dark:ring-zinc-900 shrink-0 {{ $dotColorClass() }}">
-                <flux:icon :icon="$icon" class="h-4 w-4 text-white" />
+                <x-dynamic-component :component="'flux::icon.'.$icon" class="h-4 w-4 text-white" />
             </div>
 
             {{-- content --}}

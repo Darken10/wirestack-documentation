@@ -19,7 +19,7 @@
 
             {{-- Icon --}}
             <div class="shrink-0 mt-0.5 {{ $this->typeIconClass($toast['type']) }}">
-                <flux:icon :icon="$this->typeIcon($toast['type'])" class="h-5 w-5" />
+                <x-dynamic-component :component="'flux::icon.'.$this->typeIcon($toast['type'])" class="h-5 w-5" />
             </div>
 
             {{-- Content --}}

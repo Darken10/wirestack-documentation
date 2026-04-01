@@ -7,7 +7,7 @@
             : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100'),
 ]) }} @if($disabled) aria-disabled="true" @endif>
     @if($icon)
-        <flux:icon :icon="$icon" class="h-4 w-4 shrink-0" />
+        <x-dynamic-component :component="'flux::icon.'.$icon" class="h-4 w-4 shrink-0" />
     @endif
     {{ $slot }}
     @if($badge)
