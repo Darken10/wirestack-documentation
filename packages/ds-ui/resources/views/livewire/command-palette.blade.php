@@ -33,7 +33,7 @@
 
                             @if(isset($command['icon']))
                                 <span class="flex items-center justify-center h-8 w-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700 shrink-0 transition-colors">
-                                    <flux:icon.{{ $command['icon'] }} class="h-4 w-4" />
+                                    <flux:icon :icon="$command['icon']" class="h-4 w-4" />
                                 </span>
                             @endif
 

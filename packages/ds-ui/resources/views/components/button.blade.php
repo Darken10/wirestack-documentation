@@ -16,7 +16,7 @@
     @if($loading)
         <x-ds::spinner size="sm" color="current" />
     @elseif($icon)
-        <flux:icon.{{ $icon }} class="{{ $square ? 'h-5 w-5' : 'h-4 w-4' }}" />
+        <flux:icon :icon="$icon" class="{{ $square ? 'h-5 w-5' : 'h-4 w-4' }}" />
     @endif
 
     @if(!$square)
@@ -24,6 +24,6 @@
     @endif
 
     @if($iconTrailing && !$loading && !$square)
-        <flux:icon.{{ $iconTrailing }} class="h-4 w-4 ml-auto" />
+        <flux:icon :icon="$iconTrailing" class="h-4 w-4 ml-auto" />
     @endif
 </{{ $tag }}>

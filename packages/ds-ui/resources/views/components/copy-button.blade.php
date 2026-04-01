@@ -1,12 +1,7 @@
 <button
     type="button"
     x-data="{ copied: false }"
-    x-on:click="
-        navigator.clipboard.writeText('{{ addslashes($text) }}').then(() => {
-            copied = true;
-            setTimeout(() => copied = false, 1500);
-        });
-    "
+    x-on:click="navigator.clipboard.writeText({{ Js::from($text) }}).then(() => { copied = true; setTimeout(() => copied = false, 1500); })"
     {{ $attributes->class([
         'inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium transition-colors',
         'bg-zinc-700 hover:bg-zinc-600 text-zinc-200',

@@ -1,2 +1,2 @@
 {{-- Renders a Heroicon via Flux's icon system --}}
-<flux:icon.{{ $name }} {{ $attributes->class([$sizeClass]) }} />
+<flux:icon :icon="$name" {{ $attributes->class([$sizeClass]) }} />

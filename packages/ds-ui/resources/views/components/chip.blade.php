@@ -4,7 +4,7 @@
     $sizeClass(),
 ]) }}>
     @if($icon)
-        <flux:icon.{{ $icon }} class="h-3.5 w-3.5 shrink-0" />
+        <flux:icon :icon="$icon" class="h-3.5 w-3.5 shrink-0" />
     @endif
 
     {{ $slot }}

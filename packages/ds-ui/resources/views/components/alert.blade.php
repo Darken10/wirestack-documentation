@@ -10,7 +10,7 @@
         {{-- Icon --}}
         @if($iconName)
             <div class="shrink-0 mt-0.5">
-                <flux:icon.{{ $iconName }} class="h-5 w-5" />
+                <flux:icon :icon="$iconName" class="h-5 w-5" />
             </div>
         @endif
 

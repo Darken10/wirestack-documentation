@@ -29,7 +29,7 @@
 
         @if($icon)
             <div class="flex items-center justify-center h-12 w-12 rounded-xl shrink-0 {{ $iconBgClass() }}">
-                <flux:icon.{{ $icon }} class="h-6 w-6" />
+                <flux:icon :icon="$icon" class="h-6 w-6" />
             </div>
         @endif
     </div>

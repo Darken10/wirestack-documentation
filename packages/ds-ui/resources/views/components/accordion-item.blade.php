@@ -14,7 +14,7 @@
             text-zinc-900 dark:text-zinc-100">
         <div class="flex items-center gap-2.5">
             @if($icon)
-                <flux:icon.{{ $icon }} class="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
+                <flux:icon :icon="$icon" class="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
             @endif
             {{ $title }}
         </div>
