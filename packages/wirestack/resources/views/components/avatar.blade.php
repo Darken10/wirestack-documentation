@@ -4,7 +4,7 @@
     @elseif($initials)
         <span class="select-none leading-none">{{ strtoupper($initials) }}</span>
     @else
-        <flux:icon.user class="h-1/2 w-1/2" />
+        <x-heroicon-o-user class="h-1/2 w-1/2" />
     @endif
 
     @if($status)

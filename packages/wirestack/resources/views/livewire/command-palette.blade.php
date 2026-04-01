@@ -12,7 +12,7 @@
 
                 {{-- Search input --}}
                 <div class="flex items-center gap-3 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800">
-                    <flux:icon.magnifying-glass class="h-5 w-5 text-zinc-400 dark:text-zinc-500 shrink-0" />
+                    <x-heroicon-o-magnifying-glass class="h-5 w-5 text-zinc-400 dark:text-zinc-500 shrink-0" />
                     <input
                         type="text"
                         wire:model.live="query"
@@ -33,7 +33,7 @@
 
                             @if(isset($command['icon']))
                                 <span class="flex items-center justify-center h-8 w-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700 shrink-0 transition-colors">
-                                    <x-dynamic-component :component="'flux::icon.'.$command['icon']" class="h-4 w-4" />
+                                    <x-dynamic-component :component="'heroicon-o-'.$command['icon']" class="h-4 w-4" />
                                 </span>
                             @endif
 
@@ -54,7 +54,7 @@
                         </button>
                     @empty
                         <div class="py-10 text-center">
-                            <flux:icon.magnifying-glass class="mx-auto h-8 w-8 text-zinc-300 dark:text-zinc-600 mb-2" />
+                            <x-heroicon-o-magnifying-glass class="mx-auto h-8 w-8 text-zinc-300 dark:text-zinc-600 mb-2" />
                             <p class="text-sm text-zinc-500 dark:text-zinc-400">No commands found for "{{ $query }}"</p>
                         </div>
                     @endforelse

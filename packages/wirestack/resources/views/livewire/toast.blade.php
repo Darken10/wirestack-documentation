@@ -19,7 +19,7 @@
 
             {{-- Icon --}}
             <div class="shrink-0 mt-0.5 {{ $this->typeIconClass($toast['type']) }}">
-                <x-dynamic-component :component="'flux::icon.'.$this->typeIcon($toast['type'])" class="h-5 w-5" />
+                <x-dynamic-component :component="'heroicon-o-'.$this->typeIcon($toast['type'])" class="h-5 w-5" />
             </div>
 
             {{-- Content --}}
@@ -34,7 +34,7 @@
             <button type="button"
                 wire:click="dismiss({{ $toast['id'] }})"
                 class="shrink-0 rounded-md p-0.5 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors focus:outline-none">
-                <flux:icon.x-mark class="h-4 w-4" />
+                <x-heroicon-o-x-mark class="h-4 w-4" />
             </button>
         </div>
     @endforeach

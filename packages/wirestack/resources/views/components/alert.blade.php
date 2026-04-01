@@ -10,7 +10,7 @@
         {{-- Icon --}}
         @if($iconName)
             <div class="shrink-0 mt-0.5">
-                <x-dynamic-component :component="'flux::icon.'.$iconName" class="h-5 w-5" />
+                <x-dynamic-component :component="'heroicon-o-'.$iconName" class="h-5 w-5" />
             </div>
         @endif
 
@@ -34,7 +34,7 @@
                 <button type="button"
                     x-on:click="show = false"
                     class="rounded-md p-0.5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2">
-                    <flux:icon.x-mark class="h-4 w-4" />
+                    <x-heroicon-o-x-mark class="h-4 w-4" />
                 </button>
             </div>
         @endif

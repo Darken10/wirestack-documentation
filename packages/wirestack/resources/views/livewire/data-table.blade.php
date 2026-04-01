@@ -5,7 +5,7 @@
             @if($searchable)
                 <div class="relative">
                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <flux:icon.magnifying-glass class="h-4 w-4 text-zinc-400" />
+                        <x-heroicon-o-magnifying-glass class="h-4 w-4 text-zinc-400" />
                     </div>
                     <input
                         type="search"
@@ -105,7 +105,7 @@
                         <td colspan="{{ count($columns) + ($selectable ? 1 : 0) + (isset($rowActions) ? 1 : 0) }}"
                             class="px-6 py-12 text-center">
                             <div class="flex flex-col items-center gap-2 text-zinc-400 dark:text-zinc-600">
-                                <flux:icon.inbox class="h-10 w-10" />
+                                <x-heroicon-o-inbox class="h-10 w-10" />
                                 <p class="text-sm font-medium">{{ $emptyMessage }}</p>
                             </div>
                         </td>

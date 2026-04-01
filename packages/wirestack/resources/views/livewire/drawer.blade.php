@@ -28,7 +28,7 @@
                     <button type="button"
                         wire:click="close"
                         class="rounded-lg p-1.5 text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors focus:outline-none focus-visible:ring-2">
-                        <flux:icon.x-mark class="h-5 w-5" />
+                        <x-heroicon-o-x-mark class="h-5 w-5" />
                     </button>
                 @endif
             </div>

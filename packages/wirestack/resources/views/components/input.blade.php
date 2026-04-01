@@ -15,7 +15,7 @@
             </span>
         @elseif($icon)
             <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-zinc-400 dark:text-zinc-500">
-                <x-dynamic-component :component="'flux::icon.'.$icon" class="h-4 w-4" />
+                <x-dynamic-component :component="'heroicon-o-'.$icon" class="h-4 w-4" />
             </span>
         @endif
 
@@ -38,11 +38,11 @@
         @elseif($clearable)
             <button type="button"
                 class="absolute inset-y-0 right-0 flex items-center pr-3 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">
-                <flux:icon.x-mark class="h-4 w-4" />
+                <x-heroicon-o-x-mark class="h-4 w-4" />
             </button>
         @elseif($iconTrailing)
             <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-zinc-400 dark:text-zinc-500">
-                <x-dynamic-component :component="'flux::icon.'.$iconTrailing" class="h-4 w-4" />
+                <x-dynamic-component :component="'heroicon-o-'.$iconTrailing" class="h-4 w-4" />
             </span>
         @endif
 
@@ -55,7 +55,7 @@
 
     @if($error)
         <p class="mt-1.5 text-xs text-red-600 dark:text-red-400 flex items-center gap-1">
-            <flux:icon.exclamation-circle class="h-3.5 w-3.5 shrink-0" />
+            <x-heroicon-o-exclamation-circle class="h-3.5 w-3.5 shrink-0" />
             {{ $error }}
         </p>
     @elseif($hint)

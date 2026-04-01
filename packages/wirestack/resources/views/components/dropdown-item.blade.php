@@ -6,7 +6,7 @@
             {{ $attributes->class([$itemClasses()]) }}
             @if($disabled) disabled @endif>
             @if($icon)
-                <x-dynamic-component :component="'flux::icon.'.$icon" class="h-4 w-4 shrink-0" />
+                <x-dynamic-component :component="'heroicon-o-'.$icon" class="h-4 w-4 shrink-0" />
             @endif
             {{ $slot }}
         </button>
@@ -15,7 +15,7 @@
             {{ $attributes->class([$itemClasses()]) }}
             @if($disabled) aria-disabled="true" @endif>
             @if($icon)
-                <x-dynamic-component :component="'flux::icon.'.$icon" class="h-4 w-4 shrink-0" />
+                <x-dynamic-component :component="'heroicon-o-'.$icon" class="h-4 w-4 shrink-0" />
             @endif
             {{ $slot }}
         </a>

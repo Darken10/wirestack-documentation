@@ -16,7 +16,7 @@
     @if($loading)
         <x-ds::spinner size="sm" color="current" />
     @elseif($icon)
-        <x-dynamic-component :component="'flux::icon.'.$icon" class="{{ $square ? 'h-5 w-5' : 'h-4 w-4' }}" />
+        <x-dynamic-component :component="'heroicon-o-'.$icon" class="{{ $square ? 'h-5 w-5' : 'h-4 w-4' }}" />
     @endif
 
     @if(!$square)
@@ -24,6 +24,6 @@
     @endif
 
     @if($iconTrailing && !$loading && !$square)
-        <x-dynamic-component :component="'flux::icon.'.$iconTrailing" class="h-4 w-4 ml-auto" />
+        <x-dynamic-component :component="'heroicon-o-'.$iconTrailing" class="h-4 w-4 ml-auto" />
     @endif
 </{{ $tag }}>
