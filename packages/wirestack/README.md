@@ -1,6 +1,12 @@
-# DS UI — Design System pour Laravel & Livewire 4
+# Wirestack UI
 
-Un système de design complet, modulaire et entièrement paramétrable livré sous forme de package Laravel. Plus de 70 composants Blade + 5 composants Livewire, propulsés par Tailwind CSS v4 et Alpine.js.
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/wirestack/ui.svg?style=flat-square)](https://packagist.org/packages/wirestack/ui)
+[![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-blue?style=flat-square)](https://www.php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-11%2B%20%7C%2012-red?style=flat-square)](https://laravel.com)
+[![Livewire](https://img.shields.io/badge/Livewire-4.x-purple?style=flat-square)](https://livewire.laravel.com)
+[![License](https://img.shields.io/packagist/l/wirestack/ui.svg?style=flat-square)](LICENSE.md)
+
+**Système de design complet pour Laravel & Livewire 4.** 70+ composants Blade prêts à l'emploi, 5 composants Livewire interactifs, mode sombre natif, design tokens personnalisables — propulsé par Tailwind CSS v4 et Alpine.js.
 
 ---
 

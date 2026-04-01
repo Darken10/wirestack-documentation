@@ -1,16 +1,53 @@
 {
     "name": "wirestack/ui",
-    "description": "Complete Design System for Laravel Livewire 4 — fully customizable, modular, and production-ready.",
+    "description": "Complete Design System for Laravel & Livewire 4 — 70+ Blade components, 5 Livewire components, Tailwind CSS v4, Alpine.js, dark mode, and fully customizable design tokens.",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "laravel",
+        "livewire",
+        "blade",
+        "tailwindcss",
+        "alpine",
+        "design-system",
+        "ui-components",
+        "dark-mode",
+        "components",
+        "wirestack"
+    ],
+    "homepage": "https://github.com/wirestack/ui",
+    "authors": [
+        {
+            "name": "Wirestack",
+            "email": "hello@wirestack.dev",
+            "homepage": "https://wirestack.dev",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/wirestack/ui/issues",
+        "source": "https://github.com/wirestack/ui",
+        "docs": "https://github.com/wirestack/ui/tree/main/docs"
+    },
     "require": {
         "php": "^8.2",
         "illuminate/support": "^11.0|^12.0",
+        "illuminate/view": "^11.0|^12.0",
         "livewire/livewire": "^4.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.0",
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
         "psr-4": {
             "Wirestack\\Ui\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wirestack\\Ui\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -18,6 +55,12 @@
             "providers": [
                 "Wirestack\\Ui\\WsServiceProvider"
             ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     },
     "minimum-stability": "dev",
