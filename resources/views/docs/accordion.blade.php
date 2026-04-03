@@ -42,20 +42,22 @@
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — Accordion</h2>
 <x-docs::props :rows="[
-    ['multiple', 'bool',   'false',    'Permet d\'ouvrir plusieurs items simultanément'],
-    ['variant',  'string', 'bordered', 'bordered | ghost'],
+    ['multiple', 'bool',   'false',   'Autoriser plusieurs panneaux ouverts simultanément'],
+    ['variant',  'string', 'default', 'default | flush | bordered'],
 ]" />
 
-<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — AccordionItem</h2>
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-6 mb-2">Props — AccordionItem</h2>
 <x-docs::props :rows="[
-    ['title', 'string', '',      'Titre de l\'item (toujours visible)'],
-    ['open',  'bool',   'false', 'Ouvrir l\'item par défaut'],
+    ['title',    'string', '—',     'En-tête du panneau'],
+    ['open',     'bool',   'false', 'Ouvert par défaut'],
+    ['icon',     'string', '—',     'Icône Heroicons dans le titre'],
+    ['disabled', 'bool',   'false', 'Panneau non interactif'],
 ]" />
 
-<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Mode multiple</h2>
-<p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3">Avec <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">:multiple="true"</code>, plusieurs items peuvent être ouverts en même temps.</p>
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Variante Flush</h2>
+<p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3">La variante <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">flush</code> supprime les bordures extérieures pour s'intégrer dans un conteneur.</p>
 <x-docs::demo>
-    <x-ws::accordion :multiple="true">
+    <x-ws::accordion variant="flush" multiple>
         <x-ws::accordion-item title="Section A — Général" :open="true">
             Paramètres généraux de l'application : nom, langue, fuseau horaire.
         </x-ws::accordion-item>
@@ -67,25 +69,48 @@
         </x-ws::accordion-item>
     </x-ws::accordion>
 </x-docs::demo>
-<x-docs::code>&lt;x-ws::accordion :multiple="true"&gt;
+<x-docs::code>&lt;x-ws::accordion variant="flush" multiple&gt;
     &lt;x-ws::accordion-item title="Section A" :open="true"&gt;...&lt;/x-ws::accordion-item&gt;
     &lt;x-ws::accordion-item title="Section B" :open="true"&gt;...&lt;/x-ws::accordion-item&gt;
     &lt;x-ws::accordion-item title="Section C"&gt;...&lt;/x-ws::accordion-item&gt;
 &lt;/x-ws::accordion&gt;</x-docs::code>
 
-<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Variante Ghost</h2>
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Variante Bordered</h2>
 <x-docs::demo>
-    <x-ws::accordion variant="ghost">
+    <x-ws::accordion variant="bordered">
         <x-ws::accordion-item title="Sans bordures visibles">
-            La variante ghost supprime les bordures pour une apparence plus légère.
+            La variante bordered ajoute un encadrement autour de chaque item.
         </x-ws::accordion-item>
-        <x-ws::accordion-item title="Style minimaliste">
-            Idéal pour les sections de documentation ou les FAQs dans des pages de contenu.
+        <x-ws::accordion-item title="Style encadré">
+            Idéal pour mettre en valeur des sections dans un formulaire ou une page de paramètres.
         </x-ws::accordion-item>
     </x-ws::accordion>
 </x-docs::demo>
-<x-docs::code>&lt;x-ws::accordion variant="ghost"&gt;
-    &lt;x-ws::accordion-item title="Item sans bordure"&gt;
+<x-docs::code>&lt;x-ws::accordion variant="bordered"&gt;
+    &lt;x-ws::accordion-item title="Style encadré"&gt;
+        Contenu...
+    &lt;/x-ws::accordion-item&gt;
+&lt;/x-ws::accordion&gt;</x-docs::code>
+
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Avec icônes et item désactivé</h2>
+<x-docs::demo>
+    <x-ws::accordion>
+        <x-ws::accordion-item title="Livraison standard" icon="truck">
+            Livraison en 3 à 5 jours ouvrés. Disponible pour toutes les commandes supérieures à 20 €.
+        </x-ws::accordion-item>
+        <x-ws::accordion-item title="Livraison express" icon="bolt">
+            Livraison en 24h. Disponible pour les commandes passées avant 14h.
+        </x-ws::accordion-item>
+        <x-ws::accordion-item title="Option indisponible dans votre région" disabled>
+            Cette option de livraison n'est pas disponible pour votre zone géographique.
+        </x-ws::accordion-item>
+    </x-ws::accordion>
+</x-docs::demo>
+<x-docs::code>&lt;x-ws::accordion&gt;
+    &lt;x-ws::accordion-item title="Livraison standard" icon="truck"&gt;
+        Contenu...
+    &lt;/x-ws::accordion-item&gt;
+    &lt;x-ws::accordion-item title="Option indisponible" disabled&gt;
         Contenu...
     &lt;/x-ws::accordion-item&gt;
 &lt;/x-ws::accordion&gt;</x-docs::code>

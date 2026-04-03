@@ -17,12 +17,12 @@
 <x-docs::demo label="Aperçu">
     <div class="max-w-sm space-y-4">
         <x-ws::range label="Volume" :min="0" :max="100" :step="1" />
-        <x-ws::range label="Prix maximum" :min="0" :max="1000" :step="10" :showValue="true" />
+        <x-ws::range label="Prix maximum" :min="0" :max="1000" :step="10" show-value />
     </div>
 </x-docs::demo>
 
 <x-docs::code>&lt;x-ws::range label="Volume" :min="0" :max="100" /&gt;
-&lt;x-ws::range label="Prix" :min="0" :max="1000" :showValue="true" /&gt;</x-docs::code>
+&lt;x-ws::range label="Prix" :min="0" :max="1000" show-value /&gt;</x-docs::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props</h2>
 <x-docs::props :rows="[
@@ -31,26 +31,28 @@
     ['max',       'int',    '100',     'Valeur maximale'],
     ['step',      'int',    '1',       'Incrément entre chaque valeur'],
     ['color',     'string', 'primary', 'primary | secondary | success | danger | warning | info'],
-    ['showValue', 'bool',   'false',   'Affiche la valeur actuelle'],
+    ['show-value', 'bool',  'false',   'Affiche la valeur courante (Alpine.js)'],
+    ['hint',      'string', '—',       'Texte d\'aide sous le curseur'],
+    ['wire:model','string', '—',       'Intégration Livewire'],
     ['disabled',  'bool',   'false',   'Désactive le curseur'],
 ]" />
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Avec affichage de valeur</h2>
 <x-docs::demo>
     <div class="max-w-sm space-y-4">
-        <x-ws::range label="Luminosité" :min="0" :max="100" :showValue="true" />
-        <x-ws::range label="Zoom" :min="50" :max="200" :step="10" :showValue="true" />
-        <x-ws::range label="Budget (€)" :min="0" :max="5000" :step="100" :showValue="true" />
+        <x-ws::range label="Luminosité" :min="0" :max="100" show-value />
+        <x-ws::range label="Zoom" :min="50" :max="200" :step="10" show-value />
+        <x-ws::range label="Budget (€)" :min="0" :max="5000" :step="100" show-value />
     </div>
 </x-docs::demo>
-<x-docs::code>&lt;x-ws::range label="Luminosité" :min="0" :max="100" :showValue="true" /&gt;
-&lt;x-ws::range label="Budget (€)" :min="0" :max="5000" :step="100" :showValue="true" /&gt;</x-docs::code>
+<x-docs::code>&lt;x-ws::range label="Luminosité" :min="0" :max="100" show-value /&gt;
+&lt;x-ws::range label="Budget (€)" :min="0" :max="5000" :step="100" show-value /&gt;</x-docs::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Couleurs</h2>
 <x-docs::demo>
     <div class="max-w-sm space-y-3">
         @foreach(['primary','secondary','success','danger','warning','info'] as $color)
-            <x-ws::range :label="ucfirst($color)" :color="$color" :showValue="true" />
+            <x-ws::range :label="ucfirst($color)" :color="$color" show-value />
         @endforeach
     </div>
 </x-docs::demo>
@@ -61,7 +63,7 @@
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Désactivé</h2>
 <x-docs::demo>
     <div class="max-w-sm">
-        <x-ws::range label="Valeur non modifiable" :disabled="true" :showValue="true" />
+        <x-ws::range label="Valeur non modifiable" disabled show-value />
     </div>
 </x-docs::demo>
 <x-docs::code>&lt;x-ws::range label="Désactivé" :disabled="true" /&gt;</x-docs::code>

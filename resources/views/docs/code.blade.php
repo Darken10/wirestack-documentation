@@ -19,7 +19,7 @@
         <p class="text-sm text-zinc-700 dark:text-zinc-300">
             Installez le package avec <x-ws::code :inline="true">composer require wirestack/ui</x-ws::code> puis publiez les assets.
         </p>
-        <x-ws::code language="bash" :copyable="true">composer require wirestack/ui
+        <x-ws::code language="bash" copy>composer require wirestack/ui
 php artisan wirestack:install</x-ws::code>
     </div>
 </x-docs::demo>
@@ -28,13 +28,13 @@ php artisan wirestack:install</x-ws::code>
 &lt;x-ws::code :inline="true"&gt;npm install&lt;/x-ws::code&gt;
 
 &lt;!-- Block --&gt;
-&lt;x-ws::code language="bash" :copyable="true"&gt;composer require wirestack/ui&lt;/x-ws::code&gt;</x-docs::code>
+&lt;x-ws::code language="bash" copy&gt;composer require wirestack/ui&lt;/x-ws::code&gt;</x-docs::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props</h2>
 <x-docs::props :rows="[
     ['inline',   'bool',   'false', 'Affichage inline dans du texte'],
-    ['language', 'string', '',      'Langage pour la coloration : php, js, bash, html, etc.'],
-    ['copyable', 'bool',   'true',  'Affiche un bouton de copie'],
+    ['language', 'string', '—',      'Langage de coloration : php, bash, js, html, css, json, blade...'],
+    ['copy',     'bool',   'false',  'Ajoute un bouton copier'],
 ]" />
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Code inline</h2>
@@ -49,7 +49,7 @@ php artisan wirestack:install</x-ws::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Bloc PHP</h2>
 <x-docs::demo>
-    <x-ws::code language="php" :copyable="true">&lt;?php
+    <x-ws::code language="php" copy>&lt;?php
 
 namespace App\Models;
 
@@ -68,7 +68,7 @@ class User extends Model
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Bloc Blade</h2>
 <x-docs::demo>
-    <x-ws::code language="blade" :copyable="true">&lt;x-ws::card&gt;
+    <x-ws::code language="blade" copy>&lt;x-ws::card&gt;
     &lt;x-ws::card-header title="Titre" /&gt;
     &lt;x-ws::card-body&gt;
         &#64;foreach($users as $user)
@@ -80,11 +80,11 @@ class User extends Model
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Bloc shell</h2>
 <x-docs::demo>
-    <x-ws::code language="bash" :copyable="true">composer require wirestack/ui
+    <x-ws::code language="bash" copy>composer require wirestack/ui
 php artisan vendor:publish --tag=wirestack-assets
 npm install && npm run build</x-ws::code>
 </x-docs::demo>
-<x-docs::code>&lt;x-ws::code language="bash" :copyable="true"&gt;
+<x-docs::code>&lt;x-ws::code language="bash" copy&gt;
     composer require wirestack/ui
 &lt;/x-ws::code&gt;</x-docs::code>
 

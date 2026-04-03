@@ -35,9 +35,10 @@
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props</h2>
 <x-docs::props :rows="[
-    ['title',   'string', 'null', 'Titre affiché en haut du panel'],
-    ['padding', 'string', 'md',   'Taille du padding interne'],
-    ['border',  'bool',   'true', 'Affiche la bordure du panel'],
+    ['title',   'string', 'null',     'Titre affiché en haut du panel'],
+    ['variant', 'string', 'bordered', 'Style du panel : bordered, filled'],
+    ['color',   'string', 'neutral',  'Couleur : neutral, white, primary, success, warning, danger'],
+    ['padding', 'string', 'md',       'Taille du padding interne : none, sm, md, lg'],
 ]" />
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Avec titre</h2>
@@ -60,13 +61,27 @@
     </x-ws::panel>
 </x-docs::demo>
 
-<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Sans bordure</h2>
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Variante filled</h2>
 <x-docs::demo>
-    <x-ws::panel :border="false" title="Panel sans bordure">
+    <x-ws::panel variant="filled" title="Panel sans bordure">
         <p class="text-sm text-zinc-600 dark:text-zinc-400">Ce panel n'a pas de bordure visible. Utile pour les zones de fond coloré.</p>
     </x-ws::panel>
 </x-docs::demo>
-<x-docs::code>&lt;x-ws::panel :border="false" title="Titre"&gt;
+<x-docs::code>&lt;x-ws::panel variant="filled" title="Titre"&gt;
+    Contenu...
+&lt;/x-ws::panel&gt;</x-docs::code>
+
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Couleurs</h2>
+<x-docs::demo>
+    <div class="space-y-3">
+        @foreach(['neutral', 'primary', 'success', 'warning', 'danger'] as $col)
+            <x-ws::panel :color="$col" :title="ucfirst($col)">
+                <p class="text-xs text-zinc-600 dark:text-zinc-400">Panel avec la couleur {{ $col }}.</p>
+            </x-ws::panel>
+        @endforeach
+    </div>
+</x-docs::demo>
+<x-docs::code>&lt;x-ws::panel color="success" title="Succès"&gt;
     Contenu...
 &lt;/x-ws::panel&gt;</x-docs::code>
 

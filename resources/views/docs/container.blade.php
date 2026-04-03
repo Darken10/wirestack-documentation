@@ -32,7 +32,9 @@
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props</h2>
 <x-docs::props :rows="[
-    ['size', 'string', 'xl', 'sm | md | lg | xl | 2xl | full'],
+    ['size',    'string', 'xl',   'sm | md | lg | xl | 2xl | full'],
+    ['center',  'bool',   'true', 'Centrage horizontal (mx-auto)'],
+    ['padding', 'string', 'md',   'Padding horizontal : none, sm, md, lg'],
 ]" />
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Largeurs disponibles</h2>
