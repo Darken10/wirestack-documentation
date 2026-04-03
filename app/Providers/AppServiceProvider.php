@@ -20,5 +20,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->addNamespace('layouts', resource_path('views/layouts'));
+        view()->addNamespace('docs', resource_path('views/components/docs'));
     }
 }

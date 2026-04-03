@@ -16,7 +16,7 @@
         <x-ws::badge variant="soft" color="primary" icon="code-bracket">Laravel 12</x-ws::badge>
         <x-ws::badge variant="soft" color="secondary" icon="bolt">Livewire 4</x-ws::badge>
         <x-ws::badge variant="soft" color="success" icon="sparkles">Tailwind v4</x-ws::badge>
-        <x-ws::badge variant="soft" color="warning" icon="rocket">Alpine.js</x-ws::badge>
+        <x-ws::badge variant="soft" color="warning" icon="star">Alpine.js</x-ws::badge>
     </div>
 </div>
 
