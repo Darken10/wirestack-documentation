@@ -15,19 +15,45 @@
 </div>
 
 <x-docs::demo label="Aperçu — Underline">
-    <x-ws::tabs :tabs="['Aperçu','Code','Props']" variant="underline" />
+    <x-ws::tabs
+        :tabs="[
+            ['id' => 'overview',  'label' => 'Vue d\'ensemble', 'icon' => 'home'],
+            ['id' => 'activity',  'label' => 'Activité',        'icon' => 'chart-bar', 'badge' => '5'],
+            ['id' => 'settings',  'label' => 'Paramètres',      'icon' => 'cog-6-tooth'],
+        ]"
+        variant="underline"
+        active="overview"
+    />
 </x-docs::demo>
 
-<x-docs::code>&lt;x-ws::tabs :tabs="['Aperçu', 'Code', 'Props']" variant="underline" /&gt;</x-docs::code>
+<x-docs::code>&lt;x-ws::tabs
+    :tabs="[
+        ['id' => 'overview',  'label' => 'Vue d\'ensemble', 'icon' => 'home'],
+        ['id' => 'activity',  'label' => 'Activité',        'icon' => 'chart-bar', 'badge' => '5'],
+        ['id' => 'settings',  'label' => 'Paramètres',      'icon' => 'cog-6-tooth'],
+    ]"
+    variant="underline"
+    active="overview"
+/&gt;</x-docs::code>
 
-<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props</h2>
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — Tabs</h2>
 <x-docs::props :rows="[
-    ['tabs',    'array',  '[]',       'Tableau de labels pour chaque onglet'],
-    ['variant', 'string', 'underline','underline | pills | boxed'],
-    ['size',    'string', 'md',       'sm | md | lg'],
-    ['color',   'string', 'primary',  'primary | secondary | neutral'],
-    ['align',   'string', 'start',    'start | center | end'],
-    ['full',    'bool',   'false',    'Les onglets prennent toute la largeur'],
+    ['tabs',    'array',  '—',          'Tableau de définition d\'onglets (id, label, icon, badge, disabled)'],
+    ['variant', 'string', 'underline',  'underline | pills | boxed'],
+    ['size',    'string', 'md',         'sm | md | lg'],
+    ['color',   'string', 'primary',    'Couleur de l\'onglet actif'],
+    ['align',   'string', 'left',       'left | center | right'],
+    ['full',    'bool',   'false',      'Les onglets prennent toute la largeur'],
+    ['active',  'string', 'premier id', 'ID de l\'onglet actif par défaut'],
+]" />
+
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-6 mb-2">Props — Tab (slot)</h2>
+<x-docs::props :rows="[
+    ['id',       'string', '—',     'Identifiant unique de l\'onglet'],
+    ['label',    'string', '—',     'Libellé affiché'],
+    ['icon',     'string', '—',     'Icône Heroicons'],
+    ['badge',    'string', '—',     'Badge numérique sur l\'onglet'],
+    ['disabled', 'bool',   'false', 'Désactive l\'onglet'],
 ]" />
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Variante — Pills</h2>

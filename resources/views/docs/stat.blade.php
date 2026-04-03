@@ -20,87 +20,94 @@
             label="Utilisateurs"
             value="12 847"
             trend="up"
-            trendValue="+12%"
+            trend-value="+12%"
             icon="users"
-            iconColor="primary"
+            icon-color="primary"
             description="vs mois dernier"
         />
         <x-ws::stat
             label="Revenus"
             value="€48 230"
             trend="up"
-            trendValue="+8.5%"
+            trend-value="+8.5%"
             icon="banknotes"
-            iconColor="success"
+            icon-color="success"
             description="ce mois-ci"
         />
         <x-ws::stat
             label="Commandes"
             value="3 492"
             trend="down"
-            trendValue="-3.2%"
+            trend-value="-3.2%"
             icon="shopping-bag"
-            iconColor="warning"
+            icon-color="warning"
             description="vs semaine passée"
         />
         <x-ws::stat
             label="Croissance"
             value="24.6%"
             trend="up"
-            trendValue="+2.1%"
+            trend-value="+2.1%"
             icon="arrow-trending-up"
-            iconColor="info"
+            icon-color="info"
             description="taux mensuel"
         />
     </x-ws::stat-group>
 </x-docs::demo>
 
-<x-docs::code>&lt;x-ws::stat-group&gt;
+<x-docs::code>&lt;x-ws::stat-group :cols="4"&gt;
     &lt;x-ws::stat
         label="Utilisateurs"
         value="12 847"
         trend="up"
-        trendValue="+12%"
+        trend-value="+12%"
         icon="users"
+        icon-color="primary"
         description="vs mois dernier"
     /&gt;
     &lt;x-ws::stat
         label="Revenus"
         value="€48 230"
         trend="up"
-        trendValue="+8.5%"
+        trend-value="+8.5%"
         icon="banknotes"
-        iconColor="success"
+        icon-color="success"
     /&gt;
 &lt;/x-ws::stat-group&gt;</x-docs::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — Stat</h2>
 <x-docs::props :rows="[
-    ['label',       'string', '',      'Label de la métrique'],
-    ['value',       'string', '',      'Valeur principale à mettre en avant'],
-    ['trend',       'string', 'null',  'up | down — direction de la tendance'],
-    ['trendValue',  'string', 'null',  'Valeur de variation (+12%, -3%)'],
-    ['trendColor',  'string', 'auto',  'Couleur forcée de la tendance'],
-    ['icon',        'string', '',      'Icône Heroicons'],
-    ['iconColor',   'string', 'primary','Couleur de l\'icône'],
-    ['description', 'string', 'null',  'Texte descriptif secondaire'],
+    ['label',       'string', '—',      'Libellé de la métrique'],
+    ['value',       'string', '—',      'Valeur principale mise en évidence'],
+    ['trend',       'string', 'null',  'up | down | neutral'],
+    ['trend-value', 'string', 'null',  'Variation affichée (ex: +12.5%, -0.4s)'],
+    ['trend-color', 'string', 'auto',  'Couleur forcée de la tendance'],
+    ['icon',        'string', '—',     'Icône Heroicons'],
+    ['icon-color',  'string', 'primary','Couleur de fond de l\'icône'],
+    ['description', 'string', 'null',  'Texte secondaire sous la valeur'],
+]" />
+
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-6 mb-2">Props — StatGroup</h2>
+<x-docs::props :rows="[
+    ['cols',    'int',    '3',        'Nombre de colonnes (1 à 4)'],
+    ['variant', 'string', 'bordered', 'Style des cartes stat'],
 ]" />
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Stat simple sans icône</h2>
 <x-docs::demo>
     <x-ws::stat-group>
-        <x-ws::stat label="Total ventes" value="€124 580" trend="up" trendValue="+18%" />
-        <x-ws::stat label="Nouveaux clients" value="847" trend="up" trendValue="+7%" />
-        <x-ws::stat label="Tickets ouverts" value="23" trend="down" trendValue="-15%" />
+        <x-ws::stat label="Total ventes" value="€124 580" trend="up" trend-value="+18%" />
+        <x-ws::stat label="Nouveaux clients" value="847" trend="up" trend-value="+7%" />
+        <x-ws::stat label="Tickets ouverts" value="23" trend="down" trend-value="-15%" />
     </x-ws::stat-group>
 </x-docs::demo>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Tendances</h2>
 <x-docs::demo>
     <x-ws::stat-group>
-        <x-ws::stat label="Hausse" value="92%" trend="up" trendValue="+24%" icon="arrow-trending-up" iconColor="success" />
-        <x-ws::stat label="Baisse" value="47%" trend="down" trendValue="-8%" icon="arrow-trending-down" iconColor="danger" />
-        <x-ws::stat label="Stable" value="68%" icon="minus" iconColor="neutral" description="Aucun changement" />
+        <x-ws::stat label="Hausse" value="92%" trend="up" trend-value="+24%" icon="arrow-trending-up" icon-color="success" />
+        <x-ws::stat label="Baisse" value="47%" trend="down" trend-value="-8%" icon="arrow-trending-down" icon-color="danger" />
+        <x-ws::stat label="Stable" value="68%" trend="neutral" icon="minus" icon-color="neutral" description="Aucun changement" />
     </x-ws::stat-group>
 </x-docs::demo>
 
