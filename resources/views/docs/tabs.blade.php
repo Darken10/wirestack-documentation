@@ -58,39 +58,97 @@
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Variante — Pills</h2>
 <x-docs::demo>
-    <x-ws::tabs :tabs="['Tableau de bord','Statistiques','Paramètres','Équipe']" variant="pills" />
+    <x-ws::tabs
+        :tabs="[
+            ['id' => 'dashboard', 'label' => 'Tableau de bord', 'icon' => 'home'],
+            ['id' => 'stats',     'label' => 'Statistiques',    'icon' => 'chart-bar'],
+            ['id' => 'settings',  'label' => 'Paramètres',      'icon' => 'cog-6-tooth'],
+            ['id' => 'team',      'label' => 'Équipe',           'icon' => 'users'],
+        ]"
+        variant="pills"
+    />
 </x-docs::demo>
-<x-docs::code>&lt;x-ws::tabs :tabs="['Tableau de bord', 'Statistiques', 'Paramètres']" variant="pills" /&gt;</x-docs::code>
+<x-docs::code>&lt;x-ws::tabs
+    :tabs="[
+        ['id' => 'dashboard', 'label' => 'Tableau de bord', 'icon' => 'home'],
+        ['id' => 'stats',     'label' => 'Statistiques',    'icon' => 'chart-bar'],
+        ['id' => 'settings',  'label' => 'Paramètres',      'icon' => 'cog-6-tooth'],
+    ]"
+    variant="pills"
+/&gt;</x-docs::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Variante — Boxed</h2>
 <x-docs::demo>
-    <x-ws::tabs :tabs="['Mensuel','Trimestriel','Annuel']" variant="boxed" />
+    <x-ws::tabs
+        :tabs="[
+            ['id' => 'monthly',    'label' => 'Mensuel'],
+            ['id' => 'quarterly',  'label' => 'Trimestriel'],
+            ['id' => 'yearly',     'label' => 'Annuel'],
+        ]"
+        variant="boxed"
+    />
 </x-docs::demo>
-<x-docs::code>&lt;x-ws::tabs :tabs="['Mensuel', 'Trimestriel', 'Annuel']" variant="boxed" /&gt;</x-docs::code>
+<x-docs::code>&lt;x-ws::tabs
+    :tabs="[
+        ['id' => 'monthly',   'label' => 'Mensuel'],
+        ['id' => 'quarterly', 'label' => 'Trimestriel'],
+        ['id' => 'yearly',    'label' => 'Annuel'],
+    ]"
+    variant="boxed"
+/&gt;</x-docs::code>
 
-<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Tabs pilotés par Alpine.js avec contenu</h2>
-<x-docs::demo x-data="{ tab: 'compte' }">
-    <div>
-        <x-ws::tabs variant="underline">
-            <x-ws::tab x-on:click="tab = 'compte'" :active="false" x-bind:class="{ 'active': tab === 'compte' }">Compte</x-ws::tab>
-            <x-ws::tab x-on:click="tab = 'securite'" :active="false" x-bind:class="{ 'active': tab === 'securite' }">Sécurité</x-ws::tab>
-            <x-ws::tab x-on:click="tab = 'notifications'" :active="false" x-bind:class="{ 'active': tab === 'notifications' }">Notifications</x-ws::tab>
-        </x-ws::tabs>
-        <div class="mt-4 p-4 bg-zinc-50 dark:bg-zinc-800 rounded-lg text-sm text-zinc-600 dark:text-zinc-400">
-            <div x-show="tab === 'compte'">Paramètres du compte : nom, email, avatar...</div>
-            <div x-show="tab === 'securite'">Sécurité : mot de passe, 2FA, sessions...</div>
-            <div x-show="tab === 'notifications'">Notifications : email, push, webhooks...</div>
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Tabs avec contenu ($ws.activeTab)</h2>
+<p class="text-sm text-zinc-600 dark:text-zinc-400 mb-4">Utilisez <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">$ws.activeTab</code> dans Alpine.js pour afficher le contenu correspondant à l'onglet actif.</p>
+<x-docs::demo>
+    <x-ws::tabs
+        :tabs="[
+            ['id' => 'compte',        'label' => 'Compte'],
+            ['id' => 'securite',      'label' => 'Sécurité'],
+            ['id' => 'notifications', 'label' => 'Notifications'],
+        ]"
+        variant="underline"
+        active="compte"
+    >
+        <div x-show="$ws.activeTab === 'compte'" class="mt-4 p-4 bg-zinc-50 dark:bg-zinc-800 rounded-lg text-sm text-zinc-600 dark:text-zinc-400">
+            Paramètres du compte : nom, email, avatar...
         </div>
-    </div>
+        <div x-show="$ws.activeTab === 'securite'" class="mt-4 p-4 bg-zinc-50 dark:bg-zinc-800 rounded-lg text-sm text-zinc-600 dark:text-zinc-400">
+            Sécurité : mot de passe, 2FA, sessions actives...
+        </div>
+        <div x-show="$ws.activeTab === 'notifications'" class="mt-4 p-4 bg-zinc-50 dark:bg-zinc-800 rounded-lg text-sm text-zinc-600 dark:text-zinc-400">
+            Notifications : email, push, webhooks...
+        </div>
+    </x-ws::tabs>
 </x-docs::demo>
-<x-docs::code>&lt;div x-data="{ tab: 'compte' }"&gt;
-    &lt;x-ws::tabs variant="underline"&gt;
-        &lt;x-ws::tab x-on:click="tab = 'compte'" x-bind:class="{ 'active': tab === 'compte' }"&gt;Compte&lt;/x-ws::tab&gt;
-        &lt;x-ws::tab x-on:click="tab = 'securite'" x-bind:class="{ 'active': tab === 'securite' }"&gt;Sécurité&lt;/x-ws::tab&gt;
-    &lt;/x-ws::tabs&gt;
-    &lt;div x-show="tab === 'compte'"&gt;Contenu du compte&lt;/div&gt;
-    &lt;div x-show="tab === 'securite'"&gt;Contenu sécurité&lt;/div&gt;
-&lt;/div&gt;</x-docs::code>
+<x-docs::code>&lt;x-ws::tabs
+    :tabs="[
+        ['id' => 'compte',   'label' => 'Compte'],
+        ['id' => 'securite', 'label' => 'Sécurité'],
+    ]"
+    variant="underline"
+    active="compte"
+&gt;
+    &lt;div x-show="$ws.activeTab === 'compte'"&gt;
+        Contenu du compte...
+    &lt;/div&gt;
+    &lt;div x-show="$ws.activeTab === 'securite'"&gt;
+        Contenu sécurité...
+    &lt;/div&gt;
+&lt;/x-ws::tabs&gt;</x-docs::code>
+
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Composition par slots (Tab)</h2>
+<p class="text-sm text-zinc-600 dark:text-zinc-400 mb-4">Utilisez <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">&lt;x-ws::tab&gt;</code> individuellement pour intégrer le contenu directement dans chaque onglet.</p>
+<x-docs::code>&lt;x-ws::tabs variant="pills" size="sm" align="center"&gt;
+    &lt;x-ws::tab id="day"   label="Jour"    icon="sun"&gt;
+        &lt;p&gt;Données du jour&lt;/p&gt;
+    &lt;/x-ws::tab&gt;
+    &lt;x-ws::tab id="week"  label="Semaine" icon="calendar"&gt;
+        &lt;p&gt;Données de la semaine&lt;/p&gt;
+    &lt;/x-ws::tab&gt;
+    &lt;x-ws::tab id="month" label="Mois"    icon="calendar-days"&gt;
+        &lt;p&gt;Données du mois&lt;/p&gt;
+    &lt;/x-ws::tab&gt;
+&lt;/x-ws::tabs&gt;</x-docs::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Tailles</h2>
 <x-docs::demo>
@@ -98,7 +156,11 @@
         @foreach(['sm','md','lg'] as $size)
             <div>
                 <p class="text-xs text-zinc-500 mb-1">size="{{ $size }}"</p>
-                <x-ws::tabs :tabs="['Onglet 1','Onglet 2','Onglet 3']" :size="$size" variant="pills" />
+                <x-ws::tabs
+                    :tabs="[['id' => 'a', 'label' => 'Onglet 1'], ['id' => 'b', 'label' => 'Onglet 2'], ['id' => 'c', 'label' => 'Onglet 3']]"
+                    :size="$size"
+                    variant="pills"
+                />
             </div>
         @endforeach
     </div>
