@@ -102,6 +102,13 @@
     &lt;x-ws::avatar initials="+5" color="neutral" /&gt;
 &lt;/x-ws::avatar-group&gt;</x-docs::code>
 
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — AvatarGroup</h2>
+<x-docs::props :rows="[
+    ['max',     'int',    '4',  'Nombre maximum d\'avatars affichés avant troncature'],
+    ['size',    'string', 'md', 'Taille des avatars : xs | sm | md | lg | xl'],
+    ['overlap', 'string', 'md', 'Chevauchement entre avatars : sm | md | lg'],
+]" />
+
 <div class="mt-10 pt-8 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between">
     <a href="{{ route('docs.badge') }}" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">← Badge</a>
     <a href="{{ route('docs.chip') }}" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">Chip →</a>

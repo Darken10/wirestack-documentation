@@ -72,7 +72,7 @@ class User extends Model
     &lt;x-ws::card-header title="Titre" /&gt;
     &lt;x-ws::card-body&gt;
         &#64;foreach($users as $user)
-            &lt;p&gt;{{ $user->name }}&lt;/p&gt;
+            &lt;p&gt;&#123;&#123; &#36;user-&gt;name &#125;&#125;&lt;/p&gt;
         &#64;endforeach
     &lt;/x-ws::card-body&gt;
 &lt;/x-ws::card&gt;</x-ws::code>

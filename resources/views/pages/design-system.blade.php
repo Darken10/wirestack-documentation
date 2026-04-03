@@ -78,16 +78,20 @@
             50+ fully customizable components for building production-grade Laravel applications. Dark mode, tokens, theming — everything included.
         </p>
         <div class="flex items-center justify-center gap-3 flex-wrap">
-            <x-ws::button variant="solid" color="neutral"
-                class="bg-white text-zinc-100 hover:bg-zinc-100 border-0 ">
-                <x-heroicon-o-code-bracket class="h-4 w-4" />
-                View on GitHub
-            </x-ws::button>
-            <x-ws::button variant="outline" color="neutral"
-                class="border-white/40 text-white hover:bg-white/10">
-                <x-heroicon-o-book-open class="h-4 w-4 " />
-                Documentation
-            </x-ws::button>
+            <a href="https://github.com/Darken10/wirestack.git" target="_blank">
+                <x-ws::button variant="solid" color="neutral"
+                    class="bg-white text-zinc-100 hover:bg-zinc-100 border-0 ">
+                    <x-heroicon-o-code-bracket class="h-4 w-4" />
+                    View on GitHub
+                </x-ws::button>
+            </a>
+            <a href="{{ route('docs.index') }}">
+                <x-ws::button variant="outline" color="neutral"
+                    class="border-white/40 text-white hover:bg-white/10">
+                    <x-heroicon-o-book-open class="h-4 w-4 " />
+                    Documentation
+                </x-ws::button>
+            </a>
         </div>
     </div>
 </div>

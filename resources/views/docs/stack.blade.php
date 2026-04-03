@@ -38,9 +38,10 @@
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — Inline</h2>
 <x-docs::props :rows="[
-    ['gap',   'string', '4',    '0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12'],
-    ['align', 'string', 'center','start | center | end | baseline'],
-    ['wrap',  'bool',   'true', 'Passe à la ligne si pas assez de place'],
+    ['gap',     'string', '4',     '0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12'],
+    ['align',   'string', 'center','start | center | end | baseline'],
+    ['justify', 'string', 'start', 'start | center | end | between | around | evenly'],
+    ['wrap',    'bool',   'false', 'Passe à la ligne si pas assez de place'],
 ]" />
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Stack — espacement</h2>

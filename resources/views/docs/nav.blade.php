@@ -30,6 +30,11 @@
     &lt;x-ws::nav-item href="/settings" icon="cog-6-tooth"&gt;Paramètres&lt;/x-ws::nav-item&gt;
 &lt;/x-ws::nav&gt;</x-docs::code>
 
+<h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — Nav</h2>
+<x-docs::props :rows="[
+    ['orientation', 'string', 'horizontal', 'Sens de navigation : horizontal | vertical'],
+]" />
+
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props — NavItem</h2>
 <x-docs::props :rows="[
     ['href',   'string', '',      'URL de destination'],
