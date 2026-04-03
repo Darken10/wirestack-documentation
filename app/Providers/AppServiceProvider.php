@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->addNamespace('layouts', resource_path('views/layouts'));
-        view()->addNamespace('docs', resource_path('views/components/docs'));
+
+        // Register anonymous component namespace so <x-docs::demo> resolves
+        // to resources/views/components/docs/demo.blade.php
+        Blade::anonymousComponentPath(resource_path('views/components/docs'), 'docs');
     }
 }

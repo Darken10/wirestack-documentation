@@ -5,6 +5,9 @@ $navGroups = [
         ['label' => 'Installation',     'route' => 'docs.installation',  'icon' => 'M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3'],
         ['label' => 'Configuration',    'route' => 'docs.configuration', 'icon' => 'M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z M15 12a3 3 0 11-6 0 3 3 0 016 0z'],
         ['label' => 'Design Tokens',    'route' => 'docs.tokens',        'icon' => 'M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z'],
+        ['label' => 'Theming',          'route' => 'docs.theming',       'icon' => 'M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42'],
+        ['label' => 'Directives Blade', 'route' => 'docs.directives',    'icon' => 'M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5'],
+        ['label' => 'API JavaScript',   'route' => 'docs.javascript-api','icon' => 'M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z'],
     ],
     'Atomes' => [
         ['label' => 'Button',       'route' => 'docs.button'],
@@ -249,14 +252,63 @@ $currentRoute = request()->route()->getName();
     </div>
 
     {{-- ─── MAIN CONTENT ───────────────────────────────────────────── --}}
-    <div class="lg:ml-64 flex-1 min-w-0">
-        <div class="max-w-4xl mx-auto px-6 lg:px-10 py-10 doc-content">
+    <div class="lg:ml-64 xl:mr-60 flex-1 min-w-0">
+        <div class="max-w-4xl mx-auto px-6 lg:px-10 py-10 doc-content" id="doc-content">
             {{ $slot }}
         </div>
     </div>
+
+    {{-- ─── RIGHT SIDEBAR: ON THIS PAGE ───────────────────────────── --}}
+    <aside class="hidden xl:block fixed right-0 top-14 bottom-0 w-60 overflow-y-auto sidebar-scrollbar py-8 px-4" id="toc-aside">
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-3 px-2">Sur cette page</p>
+        <nav id="toc-nav" class="space-y-0.5">
+            {{-- Populated by JS below --}}
+        </nav>
+    </aside>
 </div>
 
 @wsScripts
 @livewireScripts
+<script>
+(function () {
+    // Build "On This Page" TOC from h2 headings in the doc content
+    const content = document.getElementById('doc-content');
+    const nav = document.getElementById('toc-nav');
+    if (!content || !nav) return;
+
+    const headings = content.querySelectorAll('h2');
+    if (headings.length < 2) {
+        const aside = document.getElementById('toc-aside');
+        if (aside) aside.style.display = 'none';
+        document.querySelector('.xl\\:mr-60')?.classList.remove('xl:mr-60');
+        return;
+    }
+
+    headings.forEach(function (h, i) {
+        if (!h.id) {
+            h.id = 'section-' + i + '-' + h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        }
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        a.className = 'block px-2 py-1 text-xs rounded text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors truncate toc-link';
+        nav.appendChild(a);
+    });
+
+    // Highlight active section on scroll
+    const links = nav.querySelectorAll('.toc-link');
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                links.forEach(function (l) { l.classList.remove('text-blue-600', 'dark:text-blue-400', 'font-medium'); });
+                const active = nav.querySelector('a[href="#' + entry.target.id + '"]');
+                if (active) active.classList.add('text-blue-600', 'dark:text-blue-400', 'font-medium');
+            }
+        });
+    }, { rootMargin: '-72px 0px -80% 0px' });
+
+    headings.forEach(function (h) { observer.observe(h); });
+})();
+</script>
 </body>
 </html>
