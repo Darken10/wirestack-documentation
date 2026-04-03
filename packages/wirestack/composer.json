@@ -1,6 +1,6 @@
 {
     "name": "darken10/wirestack",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "Complete Design System for Laravel & Livewire 4 — 70+ Blade components, 5 Livewire components, Tailwind CSS v4, Alpine.js, dark mode, and fully customizable design tokens.",
     "type": "library",
     "license": "MIT",
@@ -20,7 +20,7 @@
     "authors": [
         {
             "name": "Wirestack",
-            "email": "hello@wirestack.dev",
+            "email": "zerboinoussas4@gmail.com",
             "homepage": "https://wirestack.dev",
             "role": "Developer"
         }
@@ -32,8 +32,8 @@
     },
     "require": {
         "php": "^8.2",
-        "illuminate/support": "^11.0|^12.0",
-        "illuminate/view": "^11.0|^12.0",
+        "illuminate/support": ">=11.0",
+        "illuminate/view": ">=11.0",
         "livewire/livewire": "^4.0",
         "blade-ui-kit/blade-heroicons": "^2.0"
     },
