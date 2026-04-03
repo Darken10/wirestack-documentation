@@ -49,7 +49,7 @@
 <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-4">À placer juste avant <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">&lt;/body&gt;</code>. Injecte les helpers JavaScript globaux du package et configure le raccourci clavier <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">⌘K</code> pour la palette de commandes.</p>
 
 <x-docs::code>&lt;body&gt;
-    {{ $slot }}
+    &#123;&#123; &#36;slot &#125;&#125;
 
     &#64;wsScripts
     &#64;livewireScripts
@@ -92,7 +92,7 @@
 
     &lt;livewire:ws::toast /&gt;
 
-    {{ $slot }}
+    &#123;&#123; &#36;slot &#125;&#125;
 
     &#64;wsScripts
     &#64;livewireScripts

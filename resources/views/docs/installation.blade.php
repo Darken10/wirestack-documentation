@@ -23,7 +23,7 @@
             Installer via Composer
         </h2>
         <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3 ml-8">Ajoutez le package à votre projet.</p>
-        <x-docs::code label="Terminal">composer require wirestack/ui</x-docs::code>
+        <x-docs::code label="Terminal">composer require darken10/wirestack</x-docs::code>
     </div>
 
     {{-- Étape 2 --}}
@@ -59,7 +59,7 @@
     &#64;livewireStyles
 &lt;/head&gt;
 &lt;body&gt;
-    {{ $slot }}
+    &#123;&#123; &#36;slot &#125;&#125;
 
     {{-- Wirestack UI scripts (Toast, Modal, Drawer helpers) --}}
     &#64;wsScripts
@@ -113,7 +113,7 @@
     {{-- Optionnel : Command Palette --}}
     &lt;livewire:ws::command-palette :commands="[]" /&gt;
 
-    {{ $slot }}
+    &#123;&#123; &#36;slot &#125;&#125;
 
     &#64;wsScripts
     &#64;livewireScripts

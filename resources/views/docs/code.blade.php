@@ -17,9 +17,9 @@
 <x-docs::demo label="Aperçu">
     <div class="space-y-4">
         <p class="text-sm text-zinc-700 dark:text-zinc-300">
-            Installez le package avec <x-ws::code :inline="true">composer require wirestack/ui</x-ws::code> puis publiez les assets.
+            Installez le package avec <x-ws::code :inline="true">composer require darken10/wirestack</x-ws::code> puis publiez les assets.
         </p>
-        <x-ws::code language="bash" copy>composer require wirestack/ui
+        <x-ws::code language="bash" copy>composer require darken10/wirestack
 php artisan wirestack:install</x-ws::code>
     </div>
 </x-docs::demo>
@@ -28,7 +28,7 @@ php artisan wirestack:install</x-ws::code>
 &lt;x-ws::code :inline="true"&gt;npm install&lt;/x-ws::code&gt;
 
 &lt;!-- Block --&gt;
-&lt;x-ws::code language="bash" copy&gt;composer require wirestack/ui&lt;/x-ws::code&gt;</x-docs::code>
+&lt;x-ws::code language="bash" copy&gt;composer require darken10/wirestack&lt;/x-ws::code&gt;</x-docs::code>
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-2">Props</h2>
 <x-docs::props :rows="[
@@ -80,12 +80,12 @@ class User extends Model
 
 <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mt-10 mb-3">Bloc shell</h2>
 <x-docs::demo>
-    <x-ws::code language="bash" copy>composer require wirestack/ui
+    <x-ws::code language="bash" copy>composer require darken10/wirestack
 php artisan vendor:publish --tag=wirestack-assets
 npm install && npm run build</x-ws::code>
 </x-docs::demo>
 <x-docs::code>&lt;x-ws::code language="bash" copy&gt;
-    composer require wirestack/ui
+    composer require darken10/wirestack
 &lt;/x-ws::code&gt;</x-docs::code>
 
 <div class="mt-10 pt-8 border-t border-zinc-200 dark:border-zinc-700 flex items-center justify-between">

@@ -206,7 +206,7 @@ Affichage de blocs de code ou de code inline avec coloration syntaxique optionne
 ```blade
 {{-- Bloc de code avec copie --}}
 <x-ws::code language="bash" copy>
-composer require wirestack/ui
+composer require darken10/wirestack
 </x-ws::code>
 
 {{-- PHP --}}
@@ -244,7 +244,7 @@ Bouton autonome pour copier du texte dans le presse-papiers.
 ### Utilisation
 
 ```blade
-<x-ws::copy-button text="composer require wirestack/ui" />
+<x-ws::copy-button text="composer require darken10/wirestack" />
 
 <x-ws::copy-button text="{{ $user->api_key }}" label="Copier la clé API" />
 

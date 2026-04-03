@@ -111,7 +111,7 @@ public function save(): void
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
-    {{ $slot }}
+    &#123;&#123; &#36;slot &#125;&#125;
 
     {{-- Ajouter une seule fois dans le layout racine --}}
     &lt;livewire:ws::toast /&gt;

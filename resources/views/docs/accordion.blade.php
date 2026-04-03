@@ -21,7 +21,7 @@
             Elle fournit des composants prêts à l'emploi pour accélérer le développement d'interfaces.
         </x-ws::accordion-item>
         <x-ws::accordion-item title="Comment installer Wirestack UI ?">
-            Exécutez <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">composer require wirestack/ui</code>
+            Exécutez <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">composer require darken10/wirestack</code>
             puis <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">php artisan wirestack:install</code>.
         </x-ws::accordion-item>
         <x-ws::accordion-item title="Wirestack UI est-il compatible avec Livewire 4 ?">

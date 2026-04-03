@@ -459,7 +459,7 @@
                 <x-ws::card-body>
                     <x-ws::stack gap="4">
                         <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                            Install with <x-ws::code :inline="true">composer require wirestack/ui</x-ws::code> then add
+                            Install with <x-ws::code :inline="true">composer require darken10/wirestack</x-ws::code> then add
                             <x-ws::code :inline="true">@wsStyles</x-ws::code> to your layout.
                         </p>
                         <x-ws::code language="blade" :copy="true">
@@ -549,7 +549,7 @@
                                 DS UI is a complete, production-ready design system for Laravel Livewire 4. It provides 50+ customizable components built with Tailwind CSS v4 and Alpine.js.
                             </x-ws::accordion-item>
                             <x-ws::accordion-item title="How do I install it?">
-                                Run <code class="text-xs bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">composer require wirestack/ui</code> in your Laravel project, then add <code class="text-xs bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">@wsStyles</code> to your layout file.
+                                Run <code class="text-xs bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">composer require darken10/wirestack</code> in your Laravel project, then add <code class="text-xs bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded">@wsStyles</code> to your layout file.
                             </x-ws::accordion-item>
                             <x-ws::accordion-item title="Is dark mode supported?">
                                 Yes! Every component has full dark mode support out of the box.
