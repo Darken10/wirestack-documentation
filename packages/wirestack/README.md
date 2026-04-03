@@ -101,6 +101,21 @@ Puis utilisez les composants dans vos vues :
 
 ## Documentation
 
+### Site de documentation multilingue (FR/EN)
+
+Un site de documentation complet est disponible ici :
+
+- `packages/wirestack/docs/site/index.html`
+
+Fonctionnalités incluses :
+
+- interface responsive desktop/mobile
+- bascule de langue français/anglais
+- recherche instantanée par section (titre, résumé, tags, contenu)
+- navigation ancrée rapide par chapitre
+
+Pour l'ouvrir localement, lancez simplement le fichier HTML dans un navigateur.
+
 | Sujet                 | Lien                                             |
 | --------------------- | ------------------------------------------------ |
 | Installation          | [docs/installation.md](docs/installation.md)     |

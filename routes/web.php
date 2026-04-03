@@ -4,12 +4,16 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
-    return redirect()->route("design-system");
+    return redirect()->route('design-system');
 })->name('home');
 
 Route::get('/design-system', function () {
     return view('pages.design-system');
 })->name('design-system');
+
+Route::get('/wirestack-docs', function () {
+    return view('pages.wirestack-docs');
+})->name('wirestack-docs');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
