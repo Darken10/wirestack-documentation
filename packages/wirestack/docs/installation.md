@@ -68,6 +68,53 @@ Si vous développez Wirestack dans le même dépôt (dossier `packages/wirestack
 
 ---
 
+## Configuration recommandée et dépannage
+
+### Prérequis détaillés
+
+- PHP >= 8.2 et dépendances Composer installées
+- Laravel 10/11/12 (Wirestack supporte Laravel 10+)
+- Livewire 3+ ou 4+ selon votre projet
+- Tailwind CSS v3/v4 recommandé — assurez-vous d'avoir `node` et `npm`/`pnpm` installés
+
+### Commandes utiles
+
+```bash
+composer install
+npm install
+npm run dev
+```
+
+### Exemple : `tailwind.config.js`
+
+Ajoutez les chemins du package au champ `content` pour que Tailwind scanne les vues et le code PHP du package :
+
+```js
+module.exports = {
+  content: [
+    "./resources/views/**/*.blade.php",
+    "./resources/js/**/*.js",
+    "../../vendor/darken10/wirestack/resources/views/**/*.blade.php",
+    "../../vendor/darken10/wirestack/src/**/*.php",
+  ],
+  theme: { extend: {} },
+  plugins: [],
+};
+```
+
+Remplacez les chemins par `../../packages/wirestack/...` si vous travaillez en monorepo (développement local).
+
+### Dépannage rapide
+
+- Erreur Vite / manifest : exécutez `npm run build` ou `npm run dev` puis rechargez la page.
+- Après modification des chemins Tailwind, videz le cache des vues et relancez le serveur dev :
+
+```bash
+php artisan view:clear && npm run dev
+```
+
+- Si les styles du package n'apparaissent pas, vérifiez que les chemins relatifs dans `resources/css/app.css` ou `tailwind.config.js` pointent bien vers `vendor/darken10/wirestack` ou `packages/wirestack`.
+
 ## 3. Ajouter les directives dans le layout
 
 Ajoutez `@wsStyles` dans le `<head>` et `@wsScripts` juste avant `</body>` :
