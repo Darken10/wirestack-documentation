@@ -30,6 +30,48 @@
     <div>
         <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-1 flex items-center gap-2">
             <span class="h-6 w-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
+            Intégrer les assets CSS
+        </h2>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3 ml-8">Configurez Tailwind CSS pour scanner les vues du package.</p>
+        
+        <div class="ml-8">
+            <div class="mb-4 p-3 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg">
+                <p class="text-xs font-medium text-amber-900 dark:text-amber-100 mb-1">Pourquoi cette étape ?</p>
+                <p class="text-xs text-amber-800 dark:text-amber-200">Wirestack fournit des composants avec leurs propres styles Tailwind CSS. Pour que Tailwind CSS génère automatiquement tous les styles utilisés, il doit <strong>scanner les fichiers du package</strong>. Sans cette configuration, les classes CSS ne seront pas générées et l'interface ne s'affichera pas correctement.</p>
+            </div>
+        </div>
+
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 ml-8 mb-2"><strong>Ouvrez</strong> <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">resources/css/app.css</code> <strong>et ajoutez :</strong></p>
+        <x-docs::code label="resources/css/app.css">@import "tailwindcss";
+
+/* Scanner les vues Blade et classes PHP du package Wirestack pour Tailwind */
+@source "../../vendor/darken10/wirestack/resources/views/**/*.blade.php";
+@source "../../vendor/darken10/wirestack/src/**/*.php";</x-docs::code>
+
+        <div class="ml-8 mt-3 space-y-2">
+            <p class="text-xs font-medium text-zinc-700 dark:text-zinc-300">Ce que cela fait :</p>
+            <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1 list-disc list-inside">
+                <li><code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">@import "tailwindcss"</code> — Importe le framework Tailwind CSS</li>
+                <li><code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">@source "...views/**/*.blade.php"</code> — Scanne les fichiers Blade du package</li>
+                <li><code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">@source "...src/**/*.php"</code> — Scanne les fichiers PHP (pour les classes dynamiques)</li>
+            </ul>
+        </div>
+
+        <div class="ml-8 mt-4 p-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+            <p class="text-xs font-medium text-blue-900 dark:text-blue-100 mb-2">📦 Développement local (monorepo)</p>
+            <p class="text-xs text-blue-800 dark:text-blue-200 mb-2">Si vous développez Wirestack dans <code class="bg-blue-100 dark:bg-blue-900 px-1 rounded">packages/wirestack/</code>, remplacez les chemins :</p>
+            <x-docs::code label="resources/css/app.css">@import "tailwindcss";
+
+/* Chemin local du package en développement */
+@source "../../packages/wirestack/resources/views/**/*.blade.php";
+@source "../../packages/wirestack/src/**/*.php";</x-docs::code>
+        </div>
+    </div>
+
+    {{-- Étape 3 (anciennement 2) --}}
+    <div>
+        <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-1 flex items-center gap-2">
+            <span class="h-6 w-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
             Publier la configuration (optionnel)
         </h2>
         <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3 ml-8">Publiez le fichier de configuration pour le personnaliser.</p>
@@ -37,10 +79,10 @@
         <p class="text-xs text-zinc-500 dark:text-zinc-400 ml-0 mt-2">Cela crée <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">config/ws.php</code> dans votre projet.</p>
     </div>
 
-    {{-- Étape 3 --}}
+    {{-- Étape 4 --}}
     <div>
         <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-1 flex items-center gap-2">
-            <span class="h-6 w-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
+            <span class="h-6 w-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">4</span>
             Ajouter les directives Blade
         </h2>
         <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3 ml-8">Ajoutez ces directives dans votre layout principal.</p>
@@ -69,10 +111,10 @@
 &lt;/html&gt;</x-docs::code>
     </div>
 
-    {{-- Étape 4 --}}
+    {{-- Étape 5 --}}
     <div>
         <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-1 flex items-center gap-2">
-            <span class="h-6 w-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">4</span>
+            <span class="h-6 w-6 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0">5</span>
             Utiliser les composants
         </h2>
         <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3 ml-8">Les composants sont disponibles immédiatement via le préfixe <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">ws</code>.</p>
@@ -102,7 +144,7 @@
     {{-- Composants Livewire --}}
     <div>
         <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-1 flex items-center gap-2">
-            <span class="h-6 w-6 rounded-full bg-violet-600 text-white text-xs font-bold flex items-center justify-center shrink-0">5</span>
+            <span class="h-6 w-6 rounded-full bg-violet-600 text-white text-xs font-bold flex items-center justify-center shrink-0">6</span>
             Composants Livewire
         </h2>
         <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-3 ml-8">Les composants Livewire (Modal, Drawer, Toast) se déclarent une fois dans le layout.</p>

@@ -24,23 +24,47 @@ Le service provider est auto-découvert par Laravel. Aucune déclaration manuell
 
 ## 2. Intégrer les assets CSS
 
-Dans `resources/css/app.css`, importez la feuille de styles du package pour que Tailwind CSS scanne les vues du package :
+### Pourquoi cette étape ?
+
+Wirestack fournit des composants Livewire avec leurs propres styles Tailwind CSS. Pour que Tailwind CSS génère automatiquement tous les styles utilisés dans ces composants, il doit **scanner les fichiers du package**.
+
+Sans cette configuration, les classes Tailwind des composants Wirestack ne seront pas générées, et l'interface ne s'affichera pas correctement.
+
+### Configuration
+
+Ouvrez `resources/css/app.css` et ajoutez les directives `@source` pour que Tailwind scanne les vues et le code PHP du package :
 
 ```css
 /* resources/css/app.css */
 @import "tailwindcss";
 
-/* Scanner les vues et classes PHP du package pour Tailwind */
+/* Scanner les vues Blade et classes PHP du package Wirestack pour Tailwind */
 @source "../../vendor/darken10/wirestack/resources/views/**/*.blade.php";
 @source "../../vendor/darken10/wirestack/src/**/*.php";
 ```
 
-> Si vous utilisez Wirestack en **développement local** (chemin `packages/`), remplacez les source paths par :
->
-> ```css
-> @source "../../packages/wirestack/resources/views/**/*.blade.php";
-> @source "../../packages/wirestack/src/**/*.php";
-> ```
+### Ce que cela fait
+
+- `@import "tailwindcss"` : Importe le framework Tailwind CSS
+- `@source "...views/**/*.blade.php"` : Demande à Tailwind de scanner tous les fichiers Blade du package pour détecter les classes utilisées
+- `@source "...src/**/*.php"` : Demande à Tailwind de scanner les fichiers PHP du package (certains attributs HTML de classe peuvent être générés dynamiquement)
+
+Tailwind générera **uniquement** les styles pour les classes qu'il détecte, ce qui assure un CSS optimal et sans perte de style.
+
+### Pour le développement local (monorepo)
+
+Si vous développez Wirestack dans le même dépôt (dossier `packages/wirestack/`), remplacez les chemins ci-dessus. Les chemins relatifs doivent pointer vers votre dossier local :
+
+```css
+/* resources/css/app.css */
+@import "tailwindcss";
+
+/* Utiliser le chemin local du package en développement */
+@source "../../packages/wirestack/resources/views/**/*.blade.php";
+@source "../../packages/wirestack/src/**/*.php";
+```
+
+> **Important** : Utilisez les chemins avec `vendor/` **après** la publication du package, et les chemins `packages/` **uniquement en développement local**. Assurez-vous que les chemins correspondent à votre structure de répertoires.
 
 ---
 
