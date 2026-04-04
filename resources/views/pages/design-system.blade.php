@@ -29,10 +29,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         <div class="flex items-center gap-3">
             <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center shrink-0">
-                <span class="text-white font-bold text-sm">DS</span>
+                <span class="text-white font-bold text-sm">WS</span>
             </div>
             <div>
-                <span class="font-semibold text-zinc-900 dark:text-zinc-100">DS UI</span>
+                <span class="font-semibold text-zinc-900 dark:text-zinc-100">WS UI</span>
                 <span class="ml-1.5 text-xs text-zinc-400">v1.0</span>
             </div>
         </div>

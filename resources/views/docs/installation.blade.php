@@ -14,6 +14,21 @@
     PHP 8.2+, Laravel 10+, Livewire 3+, Tailwind CSS v3/v4, Alpine.js.
 </x-ws::alert>
 
+<div class="mt-4 p-4 bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800 rounded-lg">
+    <p class="text-sm font-medium text-zinc-800 dark:text-zinc-100 mb-2">Prérequis détaillés</p>
+    <ul class="text-xs text-zinc-600 dark:text-zinc-400 space-y-1 list-inside list-disc">
+        <li>PHP >= 8.2 et dépendances Composer installées.</li>
+        <li>Laravel 10/11/12 — Wirestack supporte Laravel 10+ (y compris 12).</li>
+        <li>Livewire 3+ ou 4+ selon votre projet.</li>
+        <li>Tailwind CSS (v3 ou v4 recommandé). Assurez-vous d'avoir <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">node</code> et <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">npm</code> ou <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">pnpm</code> installés pour compiler les assets.</li>
+        <li>Pour l'environnement de développement local (monorepo), utilisez la source <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">packages/wirestack</code> (voir plus bas).</li>
+    </ul>
+    <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-3">Commandes utiles :</p>
+    <x-docs::code label="Terminal">composer install
+npm install
+npm run dev</x-docs::code>
+</div>
+
 <div class="space-y-10 mt-8">
 
     {{-- Étape 1 --}}
@@ -47,6 +62,21 @@
 /* Scanner les vues Blade et classes PHP du package Wirestack pour Tailwind */
 @source "../../vendor/darken10/wirestack/resources/views/**/*.blade.php";
 @source "../../vendor/darken10/wirestack/src/**/*.php";</x-docs::code>
+
+                <div class="ml-8 mt-4">
+                        <p class="text-xs font-medium text-zinc-700 dark:text-zinc-300">Exemple : configurer <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">tailwind.config.js</code> pour inclure les vues du package</p>
+                        <x-docs::code label="tailwind.config.js">module.exports = {
+    content: [
+        './resources/views/**/*.blade.php',
+        './resources/js/**/*.js',
+        '../../vendor/darken10/wirestack/resources/views/**/*.blade.php',
+        '../../vendor/darken10/wirestack/src/**/*.php'
+    ],
+    theme: { extend: {} },
+    plugins: [],
+};</x-docs::code>
+                        <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-2">Remplacez les chemins par <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">../../packages/wirestack/...</code> si vous travaillez en monorepo.</p>
+                </div>
 
         <div class="ml-8 mt-3 space-y-2">
             <p class="text-xs font-medium text-zinc-700 dark:text-zinc-300">Ce que cela fait :</p>
@@ -177,6 +207,15 @@
     <a href="{{ route('docs.configuration') }}" class="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
         Configuration →
     </a>
+</div>
+
+<div class="mt-8 p-4 bg-red-50 dark:bg-red-950 border border-red-100 dark:border-red-800 rounded-lg">
+    <p class="text-sm font-medium text-red-800 dark:text-red-100">Dépannage rapide</p>
+    <ul class="text-xs text-zinc-600 dark:text-zinc-400 mt-2 list-inside list-disc">
+        <li><strong>Erreur Vite / manifest :</strong> exécutez <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">npm run build</code> ou <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">npm run dev</code> puis rechargez.</li>
+        <li>Après modification des chemins Tailwind, videz le cache et relancez le dev server : <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">php artisan view:clear &amp;&amp; npm run dev</code>.</li>
+        <li>Si les styles du package n'apparaissent pas, vérifiez que les chemins relatifs dans <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">resources/css/app.css</code> ou <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">tailwind.config.js</code> pointent bien vers <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">vendor/darken10/wirestack</code> ou <code class="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">packages/wirestack</code>.</li>
+    </ul>
 </div>
 
 </x-layouts.docs>
