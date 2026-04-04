@@ -104,6 +104,7 @@ $currentRoute = request()->route()->getName();
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @wsStyles
     @livewireStyles
+    <link rel="stylesheet" href="/prism-theme.css">
     <style>
         [x-cloak] { display: none !important; }
         .doc-content h2 { scroll-margin-top: 72px; }
@@ -118,6 +119,10 @@ $currentRoute = request()->route()->getName();
         .sidebar-scrollbar::-webkit-scrollbar { width: 4px; }
         .sidebar-scrollbar::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
         .dark .sidebar-scrollbar::-webkit-scrollbar-thumb { background: #374151; }
+        /* Prism — transparent bg so zinc-950 shows through */
+        pre[class*="language-"], code[class*="language-"] { background: transparent !important; }
+        pre.code-block { padding: 0 !important; margin: 0 !important; }
+        pre.code-block code { display: block; padding: 1.25rem !important; }
     </style>
 </head>
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
@@ -269,6 +274,12 @@ $currentRoute = request()->route()->getName();
 
 @wsScripts
 @livewireScripts
+{{-- Prism.js : synchronous IIFE scripts, guaranteed to run after DOM is fully parsed --}}
+<script src="/prism.js"></script>
+<script src="/prism-markup-templating.js"></script>
+<script src="/prism-php.js"></script>
+<script src="/prism-bash.js"></script>
+<script src="/prism-json.js"></script>
 <script>
 (function () {
     // Build "On This Page" TOC from h2 headings in the doc content

@@ -16,6 +16,7 @@
                 <x-ws::copy-button :text="trim((string) $slot)" />
             </div>
         @endif
-        <pre class="p-4 overflow-x-auto text-sm font-mono leading-relaxed text-zinc-200"><code>{{ $slot }}</code></pre>
+@php $prismLang = match($language) { 'blade' => 'html', 'shell' => 'bash', default => $language }; @endphp
+        <pre class="p-4 overflow-x-auto text-sm font-mono leading-relaxed"><code @class(['language-'.$prismLang => $language, 'language-plaintext' => !$language])>{{ $slot }}</code></pre>
     </div>
 @endif

@@ -1,4 +1,4 @@
-@props(['lang' => 'blade', 'label' => null])
+@props(['lang' => 'html', 'label' => null])
 <div class="relative rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 my-5"
     x-data="{ copied: false }">
     @if($label)
@@ -7,7 +7,7 @@
         </div>
     @endif
     <div class="relative group">
-        <pre class="code-block bg-zinc-950 text-zinc-100 p-5 text-[13px] leading-relaxed overflow-x-auto"><code>{{ $slot }}</code></pre>
+        <pre class="code-block bg-zinc-950 p-5 text-[13px] leading-relaxed overflow-x-auto"><code class="language-{{ $lang === 'blade' ? 'html' : $lang }}">{{ $slot }}</code></pre>
         <button @click="
             navigator.clipboard.writeText($el.closest('.relative').querySelector('code').textContent);
             copied = true;
